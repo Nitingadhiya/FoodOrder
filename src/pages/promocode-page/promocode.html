@@ -1,0 +1,40 @@
+<ion-header no-shadow no-border>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left>
+      <button ion-button menuToggle class="menu" style="display:block !important;">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      </ion-buttons>
+      <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+      <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+      <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Promo code</ion-title>
+    <ion-buttons right class="vis_hidden">
+    <button clear icon-only class="bg_trans">
+      <span class="map_txt"></span>
+      <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="promo_code_bg">
+  <ion-item class="txt_item">
+   <ion-input placeholder="Have a code? Enter it here..." autocapitalize="characters" clearInput class="font14 black_333" [(ngModel)]="promocode" name="promocode"></ion-input>
+ </ion-item>
+<div class="list_show" *ngIf="promocode_Data.length > 0">
+ <ion-grid class="cus_grid">
+   <ion-row align-items-center *ngFor="let item of promocode_Data" class="list_promocode">
+     <ion-col col-8>
+       <span class="black_333 font14">{{item.promotion.name}}</span>
+     </ion-col>
+     <ion-col text-right col-4>
+       <span class="block font12 black_333" text-uppercase>Expiry Date</span>
+       <span class="block font12 black_333">{{item.expires | dateTime : 'date'}}</span>
+     </ion-col>
+   </ion-row>
+ </ion-grid>
+</div>
+</ion-content>
+
+<ion-footer class="footer_price" [ngStyle]="{'padding-bottom': globalService.keyboard_height+'px'}">
+  <button ion-button full class="signupbut margin font15 default_cls brd_radN" (click)="applied_promocode()" [ngStyle]="{'background-color': constants.button_colour_2}" text-uppercase>Submit</button>
+</ion-footer>

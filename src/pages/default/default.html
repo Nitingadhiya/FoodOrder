@@ -1,0 +1,85 @@
+<ion-content>
+  <ion-slides (ionSlideDidChange)="slideChanged()">
+    <ion-slide>
+      <ion-row class="svg_imgDiv">
+        <img src="assets/images/walk_1.svg">
+      </ion-row>
+      <ion-grid class="width85">
+        <ion-row>
+          <ion-col class="font28 title_walk black_333">Order & Collect</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="font12 description">Order ahead and choose a collection time that works for you. your order will be ready when you get there.</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide>
+      <ion-row class="svg_imgDiv">
+        <img src="assets/images/walk_2.svg">
+      </ion-row>
+      <ion-grid class="width85">
+        <ion-row>
+          <ion-col class="font32 title_walk black_333">Pick Up Time</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="font12 description">We will remind you when it's time to leave to collect your order, with a notification message.</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide>
+      <button menuClose ion-item (click)="dismiss()" class="font13 black_333 OpenSans-Regular close_signIn">
+        Skip
+      </button>
+      <ion-row class="svg_imgDiv">
+        <img src="assets/images/walk_3.svg">
+      </ion-row>
+      <ion-grid class="width85">
+        <ion-row>
+          <ion-col class="font32 title_walk black_333">Location</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="font12 description">We use Location data to calculate your distance from the store, and estimate travel time.</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="font12 description">We can also notify the store when you arrive to collect your order.</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+  </ion-slides>
+  <div class="slide_fix_part">
+  <ion-grid class="grid_dot">
+    <ion-row align-items-center>
+      <ion-col class="margin" col-2>
+        <div class="slide_dot" [ngClass]="currentIndex == 0 ? 'dot_slide' : 'blank_dot_slide'" [ngStyle]="{'background-color': constants.button_colour_1}" *ngIf="currentIndex == 0"></div>
+          <div class="slide_dot blank_dot_slide" *ngIf="currentIndex > 0"></div>
+      </ion-col>
+      <ion-col class="margin" col-2>
+        <div class="slide_dot" [ngClass]="currentIndex == 1 ? 'dot_slide' : 'blank_dot_slide'" [ngStyle]="{'background-color': constants.button_colour_1}" *ngIf="currentIndex == 1"></div>
+        <div class="slide_dot blank_dot_slide" *ngIf="currentIndex >= 2 || currentIndex == 0"></div>
+      </ion-col>
+      <ion-col class="margin" col-2>
+        <div class="slide_dot" [ngClass]="currentIndex >= 2 ? 'dot_slide' : 'blank_dot_slide'" *ngIf="currentIndex < 2"></div>
+        <div class="slide_dot" [ngClass]="currentIndex >= 2 ? 'dot_slide' : 'blank_dot_slide'" *ngIf="currentIndex >= 2" [ngStyle]="{'background-color': constants.button_colour_1}"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngIf="currentIndex >= 2">
+    <ion-list>
+      <button ion-item (click)="signIn()" class="font15 black_333 sign_inBtn" text-center>
+        Sign in
+      </button>
+    </ion-list>
+  </ion-grid>
+  <ion-grid class="walk_btn">
+    <button ion-item (click)="goToSlide()" class="button-colour-1 white_code font16" text-center *ngIf="currentIndex == 0" [ngStyle]="{'background-color': constants.button_colour_1}">
+      NEXT
+    </button>
+    <button ion-item (click)="notificationPermission()" class="button-colour-1 white_code font16 " text-center *ngIf="currentIndex == 1" [ngStyle]="{'background-color': constants.button_colour_1}">
+      NEXT
+    </button>
+    <button ion-item (click)="signUp()" class="button-colour-1 white_code font16 " text-center *ngIf="currentIndex >= 2" [ngStyle]="{'background-color': constants.button_colour_1}">
+      REGISTER
+    </button>
+  </ion-grid>
+ </div>
+</ion-content>

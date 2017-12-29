@@ -1,0 +1,29 @@
+page-home {
+  ion-card {
+    position: relative;
+    text-align: center;
+    min-height: 150px;
+  }
+  .card-title {
+    position: absolute;
+    bottom: 0px;width:100%;padding: 0px 5px 0px 5px;
+  }
+  .resturant_name{line-height: 22px;white-space: initial;}
+  .item_name{line-height: 22px;white-space: initial;}
+  .tab_segment{padding:8px;}
+  .tab_segment .segment-button{border-radius: 0px !important;}
+  .card {
+    margin: 0px 0px 10px 0px;
+    border-radius: 2px;
+    width: 100%;
+    height:200px;
+    max-height:180px;
+  }
+  .segment-button.segment-activated{background-color: transparent !important;}
+  .max_img{max-height: 100%;max-width:100%;}
+  .card-background-page{padding-top: 10px;}
+   .closed-banner{width: 150px;position: absolute;z-index: 10001;height: 60px;top: -30px;transform: rotate(-30deg);left: -30px;padding-right: 50px;
+    line-height: 80px;}
+    .duration_time{white-space: normal;line-height: 12px !important;}
+    .distance_res{padding-bottom: 1px;margin-top: -4px;line-height: 20px !important;}
+  }

@@ -1,0 +1,25 @@
+page-default
+{
+  .svg_imgDiv{text-align: center;margin: auto;margin-top: 60px;width: 50%;margin-bottom: 20px;}
+  .svg_imgDiv img{width:100%;}
+ .description{line-height: 20px;color: #5D5D5D;}
+ .blank_dot_slide{background-color: #e5e5e5;}
+ .slide_dot{height:10px;width:10px;border-radius: 100%;margin: auto;}
+ [col-2]{max-width:20px;}
+ .grid_dot{max-width: 20%;min-width: 95px;margin-top: 0px;}
+ .slide3{margin-top:8%;}
+ .walk1_next{height: 50px;}
+ .walk_btn{position: absolute;bottom:0;padding: 0px;}
+ .row_signIn{margin-top: 10px;}
+ .sign_in{padding-left: 8px;padding-right: 8px;}
+ .slide_fix_part{position: absolute;bottom: 0px; width: 100%;height: 145px;z-index:10;}
+ .signinrow{position: absolute;bottom: 50px;left:0%;width:100%;z-index: 999999;background:  color($colors_new, signupbut_bg, base);}
+ .signinbut {color: color($colors_new, signupbut_txt, base);background:  color($colors_new, defcolor, base);width: 80px;height: 30px; margin: auto;border-radius: 20px;}
+ .signupbut.activated {color: color($colors_new, signupbut_txt, base);background:  color($colors_new, signupbut_bg, base);}
+ .nopadding{padding:0 !important;}
+ ion-slides{ion-slide{.slide-zoom{height: 100%;img{height: 100%;}}}}
+ .close_signIn{margin-top: 10px;position: absolute;z-index: 99;padding: 0px 0px 0px 0px;border-radius: 4px;width: 55px;height: 40px;    text-align: center; float:right;right:0px;text-align: right;text-decoration: underline;line-height: 40px;}
+ .close_signIn.item-md{margin-top:0px !important;}
+ .sign_inBtn.activated{background: transparent !important;}
+ .walk_btn button{min-height:5rem;}
+}

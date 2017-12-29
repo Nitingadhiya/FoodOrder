@@ -1,0 +1,14 @@
+page-favourites-details {
+.my_beli ion-list{margin-bottom: 2px !important;border-top: 1px dashed #ccc;}
+.text_full{text-overflow: inherit !important;white-space:normal;}
+.menu_btn{height:30px;border: 2px solid  color($colors_new,loyality_rewards_BTN) !important;color: color($colors_new,loyality_rewards_BTN) !important;font-size: 12px;margin:auto;margin-top: 8px;}
+.order_time{margin-top:8px;}
+.css_item{padding-left:0px;}
+.css_item .item-inner{padding-right: 0px !important;}
+.view_to_basket{padding: 0px;}
+.add_more{border-right: 1px solid;padding: 0px;height: 44px;line-height: 44px;}
+.continute_pay{line-height: 44px;padding: 0px;height: 44px;}
+.view_to_basket .toolbar-background{background-color:transparent;}
+ion-list{padding: 0px 8px;margin-top: 2px;}
+.merchant_name,.merchant_addr{margin:5px 0px !important;}
+}

@@ -1,0 +1,83 @@
+<ion-header no-shadow no-border>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="closePage()" class="vis_hidden">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back vis_hidden"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Done</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Thank you</ion-title>
+    <ion-buttons right (click)="closePage()">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back vis_hidden"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Done</span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="thank_modal">
+  <ion-grid class="right_circle">
+    <ion-col class="circle">
+      <ion-icon name="md-checkmark" class="font36 white_code"></ion-icon>
+    </ion-col>
+  </ion-grid>
+  <ion-grid class="thank_recipe_bg">
+  <ion-row>
+    <ion-col class="font20 black_333" text-center>
+      <b>Thank you!</b>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="font13 black_333" text-center>
+      Your order was successful
+    </ion-col>
+  </ion-row>
+  <div class="border_cls"></div>
+  <ion-row class="space_margin" text-left>
+    <ion-col col-5 text-uppercase class="font12 black_6f6f">
+      Order number:
+    </ion-col>
+    <ion-col col-7 class="font14 black_333">
+        <b>#{{item_data.collection_code}}</b>
+    </ion-col>
+  </ion-row>
+  <ion-row text-left class="space_margin">
+    <ion-col col-5 text-uppercase class="font12 black_6f6f">
+      Collection time:
+    </ion-col>
+    <ion-col col-7 class="font14 black_333">
+        <b>{{preparation_time}} - {{collection_time}}</b>
+    </ion-col>
+  </ion-row>
+
+  <ion-row text-left class="space_margin">
+    <ion-col col-5 text-uppercase class="font12 black_6f6f">
+      Collection from:
+    </ion-col>
+    <ion-col col-7 class="font13 black_333">
+      <b>{{merchant_address}}</b>
+    </ion-col>
+  </ion-row>
+  <ion-row class="space_margin">
+    <button ion-button round outline class="direction_btn" (click)="launchApp()">Directions</button>
+  </ion-row>
+  <ion-row class="space_margin">
+    <ion-col text-center class="black_333">
+      No need to queue!<br/>
+      Simply show this code when collecting your order
+    </ion-col>
+  </ion-row>
+  <ion-row text-left class="space_margin now_earn">
+    <ion-col col-2 [ngClass]="globalService.rewards_brand ? '' :'vis_hidden'">
+      <ion-col><ion-icon name="ios-star" class="loyality_star font20 stamp_color star_icon_bg"></ion-icon></ion-col>
+    </ion-col>
+    <ion-col col-10 [ngClass]="globalService.rewards_brand ? '' :'vis_hidden'">
+      <span class="black_333 block"><b>You have earned a stamp</b></span>
+      <span class="black_6f6f block">Now you have {{item_data.awarded_stamps}} stamps in total</span>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<br/>
+</ion-content>

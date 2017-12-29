@@ -1,0 +1,86 @@
+<ion-header no-shadow no-border>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="backPage()">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Loyality</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="loyalty_cont">
+<ion-grid class="width95 grid_card">
+  <ion-row text-uppercase text-center class="font24 white_code Loy_text">
+    <ion-col text-center>Loyalty card</ion-col>
+  </ion-row>
+  <ion-grid class="LOY">
+  <ion-row class="loyalty_card">
+    <ion-col text-center>
+      <img src="assets/images/star_fill.png" class="pos_star_abs" [ngClass]="user_progress > 0 ? 'z_index_1' :'' ">
+      <img src="assets/images/star_blank.png">
+    <!--  <ion-icon name="ios-star" class="loyality_star font20" [ngClass]="user_progress > 0 ? 'stamp_color' :'' " ></ion-icon>-->
+    </ion-col>
+    <ion-col text-center> <!--*ngIf="stamps_required > 1" -->
+      <img src="assets/images/star_fill.png" class="pos_star_abs" [ngClass]="user_progress > 1 ? 'z_index_1' :'' ">
+      <img src="assets/images/star_blank.png">
+    </ion-col>
+    <ion-col  text-center>
+      <img src="assets/images/star_fill.png" class="pos_star_abs" [ngClass]="user_progress > 2 ? 'z_index_1' :'' ">
+      <img src="assets/images/star_blank.png">
+    </ion-col>
+    <ion-col text-center>
+      <img src="assets/images/star_fill.png" class="pos_star_abs" [ngClass]="user_progress > 3 ? 'z_index_1' :'' ">
+      <img src="assets/images/star_blank.png">
+    </ion-col>
+    <ion-col text-center>
+      <img src="assets/images/star_fill.png" class="pos_star_abs" [ngClass]="user_progress > 4 ? 'z_index_1' :'' ">
+      <img src="assets/images/star_blank.png">
+    </ion-col>
+  </ion-row>
+  <ion-row class="loyalty_card">
+    <ion-col text-center>
+      <img src="assets/images/star_fill.png" class="pos_star_abs" [ngClass]="user_progress > 5 ? 'z_index_1' :'' ">
+      <img src="assets/images/star_blank.png">
+    <!--  <ion-icon name="ios-star" class="loyality_star font20" [ngClass]="user_progress > 0 ? 'stamp_color' :'' " ></ion-icon>-->
+    </ion-col>
+    <ion-col text-center>
+      <img src="assets/images/star_fill.png" class="pos_star_abs" [ngClass]="user_progress > 6 ? 'z_index_1' :'' ">
+      <img src="assets/images/star_blank.png">
+    </ion-col>
+    <ion-col text-center>
+      <img src="assets/images/star_fill.png" class="pos_star_abs" [ngClass]="user_progress > 7 ? 'z_index_1' :'' ">
+      <img src="assets/images/star_blank.png">
+    </ion-col>
+    <ion-col text-center>
+      <img src="assets/images/star_fill.png" class="pos_star_abs" [ngClass]="user_progress > 8 ? 'z_index_1' :'' ">
+      <img src="assets/images/star_blank.png">
+    </ion-col>
+    <ion-col text-center>
+      <img src="assets/images/star_fill.png" class="pos_star_abs" [ngClass]="user_progress > 9 ? 'z_index_1' :'' ">
+      <img src="assets/images/star_blank.png">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  <ion-row text-center class="white_code stmp_text">
+    <ion-col>Collect all {{stamps_required}} Stamps to redeem a reward</ion-col>
+  </ion-row>
+</ion-grid>
+<!--<ion-grid>
+  <ion-row text-center>
+    <ion-col class="white_code learn_more" text-decoration><span>Learn more</span></ion-col>
+  </ion-row>
+</ion-grid>-->
+</ion-content>
+<ion-footer class="ion_footer">
+  <div class="footer_divcss"></div>
+    <button ion-button full class="default_cls loyality_rewards_BTN" text-uppercase (click)="collectStamp()" [ngStyle]="{'background-color': constants.button_colour_2}">Collect Stamp</button>
+    <button ion-button full class="default_cls order_collect_BTN" text-uppercase (click)="viewRedeemScreen()" [ngStyle]="{'background-color': constants.button_colour_1}" disabled="{{buttonDisabled}}">Redeem</button>
+</ion-footer>

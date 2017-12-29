@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="__local_jars__:/Volumes/DATA/Nitin/project/KAG/Github/beli_whitelabel_app-master/platforms/android/libs/altbeacon.jar:unspecified@jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/altbeacon.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

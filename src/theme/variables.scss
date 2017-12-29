@@ -1,0 +1,148 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+$OpenSansPath: "../assets/fonts";
+$OpenSansVersion: '1.101' !default;
+
+@mixin fontdef($OpenSansPath, $OpenSansVersion, $FontType:'Regular') {
+	src: url('#{$OpenSansPath}/#{$FontType}/OpenSans-#{$FontType}.woff2?v=#{$OpenSansVersion}') format('woff2'),
+		url('#{$OpenSansPath}/#{$FontType}/OpenSans-#{$FontType}.woff?v=#{$OpenSansVersion}') format('woff');
+}
+/*Method 1 */
+/* BEGIN Regular */
+@font-face {
+	font-family: 'Open Sans';
+	@include fontdef($OpenSansPath, $OpenSansVersion, 'Regular');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* END Regular */
+
+/*Method 2 */
+/* BEGIN Regular
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../assets/fonts/Regular/OpenSans-Regular.eot');
+  src: url('../assets/fonts/Regular/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../assets/fonts/Regular/OpenSans-Regular.woff') format('woff'),
+       url('../assets/fonts/Regular/OpenSans-Regular.ttf') format('truetype'),
+       url('../assets/fonts/Regular/OpenSans-Regular.svg#OpenSansRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* END Regular */
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+@import "theme.light";
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:    #488aff,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+
+);
+$colors_new: (
+  facebookbut_txt:#1B3777,
+  facebookbut_bg:transparent,
+  signupbut_txt:#87221B,
+  signupbut_bg:transparent,
+  facebookbut_bd:#ddd,
+  signupbut:#5B273D,
+  signinbut:#5B273D,
+  defcolor:#fff,
+  error_color:red,
+  black_card_color:rgba(0,0,0,0.5),
+  tab_background_color:#555,
+  black_color:#000,
+  green_color:green,
+  black888_color:#888,
+  from_color:#999,
+  red_card_color:#5A0002,
+  grey_color:#dedede,
+  order_collect_BTN : #3B3B3B,
+  loyality_rewards_BTN : #7DCA7D,
+  walk1_next : #5C8771,
+);
+
+
+$colors_whitelabel :(
+	button_colour_1 : #7DCA7D,
+	button_colour_2 : #383838,
+	primary_colour : #3B3B3B,
+	secondary_colour : #7DCA7D,
+);
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+//@import "roboto";
+//@import "noto-sans";

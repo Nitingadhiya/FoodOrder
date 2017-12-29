@@ -1,0 +1,29 @@
+page-product-list-options {
+
+.product_name .item{border:none !important;}
+.product_description{margin:auto;width:80%;line-height: 18px;height: auto;margin-bottom:8px;}
+.product_name{height: auto;padding-top: 5px;line-height: 25px;}
+.product_price_bg{padding:5px;}
+.footer_price .toolbar-title{font-weight:300;}
+.product_price_bg .toolbar-title{font-size: 13px;}
+.footer_price .toolbar{min-height: 50px !important;}
+.list_mrg0{margin-bottom: 0px;}
+//.price_lbl{display: inline-block;width:70%;padding-left: 25px;}
+ion-radio{position: absolute !important;z-index: 1;width: 100%;top: 5px;left:20px;}
+.price_val{display: inline-block;width:30%;line-height: 23px;}
+.add_title .toolbar-title{font-size: 15px !important}
+.product_page .label{margin: 8px 8px 8px 0;}
+.product_page .list-header{min-height: 3.5rem;}
+.product_option_header{height: 30px;}
+.item_txt{margin-bottom: 10px;}
+.item.item .checkbox{margin: 9px 0px 9px 4px;}
+.checkbox .checkbox-icon,.radio .radio-icon{width: 20px;height: 20px;border-color:#888;}
+.checkbox .checkbox-checked{background-color: grey;}
+.radio-md .radio-inner{background-color: grey;width: 10px;height: 10px;left: 3px;top: 3px;}
+.checkbox .checkbox-checked .checkbox-inner{left: 6px;width: 5px;height: 12px;}
+.chk_custom .item-inner{margin-left: 10px;}
+.item-radio .item-inner{margin-left: 36px;}
+.item-radio-checked.item ion-label{color: #333;}
+.item_radio .item-block ,.chk_custom .item-block {min-height: 5rem !important;}
+.txt_inital{text-transform: initial;}
+  }

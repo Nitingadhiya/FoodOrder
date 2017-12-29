@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="closePage()">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Basket</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">MAP</span>
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="modal_basket">
+  <ion-card>
+    <div class="img_css_bg" [ngStyle]="{'background-image': 'url(' +merchant_data.background+ ')'}" *ngIf="merchant_data.background" ></div>
+    <img [src]="constants.merchant_defaultImage" class="max_img mcx" *ngIf="!merchant_data.background"/>
+      <div class="black_opacity_bg details_bg"></div>
+    <div class="card-title font14">{{merchant_data.name}}</div>
+    <div class="card-subtitle font11">{{merchant_address}}</div>
+  </ion-card>
+
+  <ion-list class="list_mrg0 colletion_list">
+    <ion-list-header class="product_option_header font14" text-uppercase text-center [ngStyle]="{'background-color': constants.secondary_colour}">
+      Collection time
+    </ion-list-header>
+    <ion-item class="picker_change font15" (click)="openPicker()" [ngStyle]="{'color': constants.secondary_colour}" text-right>CHANGE</ion-item>
+    <ion-item class="pos_relative select_time bg_trans">
+      <!--<ion-label class="font14 black_333"> <ion-icon ios="ios-basket" md="md-basket"></ion-icon> Please select</ion-label>-->
+      <ion-label class="font13 black_333 today_txt selct_txt_pl" text-right text-uppercase *ngIf="!time_display">
+        TODAY, &nbsp;&nbsp;&nbsp;&nbsp;(ASAP) 5 <span text-capitalize>Minutes</span>
+      </ion-label>
+      <ion-label class="font13 black_333 today_txt" text-right text-uppercase *ngIf="time_display">
+        Today,
+      </ion-label>
+      <ion-multi-picker id="default" [(ngModel)] = "default" item-content="" [multiPickerColumns]="dependentColumns" (ionChange)="give_value(default)" cancelText="CHOOSE COLLECTION TIME" doneText="SELECT" class="font14" (click)="openPicker()"></ion-multi-picker>
+    </ion-item>
+  </ion-list>
+<ion-list class="list_mrg0">
+  <ion-list-header class="product_option_header font14" text-uppercase text-center [ngStyle]="{'background-color': constants.secondary_colour}">
+    Items
+  </ion-list-header>
+</ion-list>
+<div *ngFor= "let item_array of basket_data let i=index;">
+<ion-row *ngFor= "let item of item_array?.line_items" class="style_row vertical-align-content">
+    <ion-col col-2 text-center class="bskt">
+      <span (click)="quantityAdd(item.quantity,item.product,i)" class="block font22"><ion-icon name="ios-add"></ion-icon></span>
+      <span (click)="quantityMinus(item.quantity,item.product,i)" class="block font22"><ion-icon name="ios-remove"></ion-icon></span>
+    </ion-col>
+    <ion-col col-7 (click)="productListOptionPage(item.product,i)">
+      <span class="block font16"><span *ngIf="item.quantity > 1" class="font13">{{item.quantity}} X</span> {{item.product_name}}</span>
+      <span *ngFor="let extra of item?.variations" class="font12">
+        <span *ngIf="extra.label">{{extra.label}},</span>
+        <span *ngIf="!extra.label">{{extra.value}},</span>
+      </span>
+      <span *ngIf="item.special_request" class="font12 special_request">
+        {{item.special_request}}
+      </span>
+    </ion-col>
+    <ion-col col-3 align-self-center (click)="productListOptionPage(item.product,i)" text-right>
+      &#163;
+      <span *ngIf="basket_price fon18">{{(item.quantity * item.total_price).toFixed(2)}}</span>
+    </ion-col>
+
+  </ion-row>
+</div>
+<ion-grid>
+  <ion-row class="margin">
+    <ion-col col-auto (click)="cancelOrder()" class="cancel_order font14 margin" text-center>
+      Cancel Order
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-title class="product_price_bg basket_price_bg promo_Discount font13" text-center [ngStyle]="{'background-color': constants.button_colour_2}" *ngIf="cart_promotions">&#163; {{cart_promotions}} applied</ion-title>
+    <ion-title class="product_price_bg basket_price_bg font13" text-center [ngStyle]="{'background-color': constants.secondary_colour}">&#163; {{globalService.cart_total}}</ion-title>
+  <ion-toolbar class="add_to_basket view_to_basket" text-center [ngStyle]="{'background-color': constants.button_colour_2}">
+    <ion-row>
+      <ion-col  class="white_code add_more">
+          <button ion-button full class="signupbut margin font15 default_cls brd_radN" (click)="merchantDetails_screen()" [ngStyle]="{'background-color': constants.button_colour_2}" text-uppercase>ADD More</button>
+      </ion-col>
+      <ion-col class="white_code continute_pay">
+        <button ion-button full class="signupbut margin font15 default_cls brd_radN" (click)="continueOrder()" [ngStyle]="{'background-color': constants.button_colour_2}" text-uppercase>Continue & Pay</button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

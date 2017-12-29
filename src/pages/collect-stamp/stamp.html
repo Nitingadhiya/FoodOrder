@@ -1,0 +1,32 @@
+<ion-header no-shadow no-border>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="backPage()">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Collect stamp</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="collect_stamp">
+  <ion-row>
+    <ion-col class="white_code font10">
+      <span class="font18">[&nbsp;]</span> Scan
+    </ion-col>
+  </ion-row>
+  <div class="vertical-align-content main_cls" *ngIf="collect_stamp_show == 1">
+    <div class="cls"><ion-icon name="ios-qr-scanner" class="font250" [ngStyle]="{'color': constants.secondary_colour}"></ion-icon></div>
+  </div>
+</ion-content>
+<ion-footer class="ion_footer">
+  <div class="footer_divcss"></div>
+    <button ion-button full class="default_cls loyality_rewards_BTN"  text-uppercase (click)="cancel()" [ngStyle]="{'background-color': constants.button_colour_1}">Cancel</button>
+</ion-footer>

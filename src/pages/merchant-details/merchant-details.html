@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="cartClear()">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Resturant</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">MAP</span>
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  <ion-card class="trnsi_cls" [ngClass]="add_trans_add_left == 1 ? 'trans_add_left' : '' ">
+    <div class="img_css_bg" img-cache img-cache-bg-url="{{merchant_data.background}}" *ngIf="merchant_data.background" ></div>
+    <img [src]="constants.merchant_defaultImage" class="max_img mcx" *ngIf="!merchant_data.background"/>
+    <div class="black_opacity_bg details_bg"></div>
+    <div class="collect_Time">
+      <ion-row class="white_code view_row_basket">
+        <ion-col text-left class="font9">
+        Collect in {{collectTime}} min
+      </ion-col>
+      <ion-col text-right  class="font9" *ngIf="globalService.merchant_isopen == true">
+        Open {{open_time}}
+      </ion-col>
+      <!--<ion-col text-right  class="font9" *ngIf="globalService.merchant_isopen == false">
+        Closed
+      </ion-col>-->
+    </ion-row>
+    </div>
+    <div class="card-title font14">{{merchant_data.name}}</div>
+    <div class="card-subtitle font11">{{merchant_data.cuisine}}</div>
+    <div class="stamp_Time">
+      <ion-row class="white_code">
+        <ion-col text-left>
+          <ion-icon name="md-radio-button-on" class="radio_btn" *ngIf="reward_program"></ion-icon>
+          <span *ngIf="!user_can_redeem && reward_program" class="font10">{{user_progress}}/{{stamps_required}} stamps</span>
+          <span *ngIf="user_can_redeem && reward_program" class="font10">Redeem</span>
+        </ion-col>
+      <ion-col text-right class="font10 dt_time">
+        <ion-icon name="pin"></ion-icon>&nbsp;
+        <span class="font10">{{DTime}}</span>
+      </ion-col>
+    </ion-row>
+    </div>
+  </ion-card>
+    <super-tabs id="mainTabs" [config]="{ sideMenu: 'both',transitionDuration :'10000' }" scrollTabs toolbarColor="light" toolbarBackground="dark" indicatorColor="yellow" badgeColor="yellow" (tabSelect)="onTabSelect($event)" [ngClass]="reward_program ? 'width_custom' : ''" class="home_toolbar" [ngStyle]="{'background-color': constants.secondary_colour}">
+      <super-tab [swipeBackEnabled]="false" [root]="page1" [title]="'MENU'" id="page1" text-center></super-tab>
+      <super-tab [root]="page2" [title]="'REWARDS'"  id="page2" text-center *ngIf="reward_program"></super-tab>
+      <super-tab [root]="page3" [title]="'INFO'"  id="page3" text-center *ngIf="info_temp"></super-tab>
+    </super-tabs>
+</ion-content>
+<ion-footer *ngIf="globalService.product_cart.length > 0" class="footer_cart">
+  <ion-toolbar class="add_to_basket view_to_basket font13" text-center (click)="showModal()">
+    <ion-row class="view_row_basket">
+      <ion-col  class="white_code font13" text-left>
+        <span class="item_number black_333" text-center>{{globalService.product_cart.length}}</span><span style="display:inline-block;line-height:15px;margin-left: 3px;">&nbsp; item</span>
+      </ion-col>
+      <ion-col  class="white_code font15" text-center>
+    <!--  <span style="display:block;width:100%;margin-top:5px;">-->  &#163; {{globalService.cart_total}}<!--</span>-->
+      </ion-col>
+      <ion-col class="white_code font13" align-self-end text-uppercase text-right>
+        <span>View</span>&nbsp;&nbsp;<span><ion-icon name="ios-arrow-forward" class="font22 view_cart_right_arrow"></ion-icon></span>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

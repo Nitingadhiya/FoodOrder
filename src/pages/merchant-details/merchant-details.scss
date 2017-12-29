@@ -1,0 +1,75 @@
+page-merchant-details {
+  super-tabs-toolbar > ion-toolbar.toolbar.scroll-tabs .tab-buttons-container .tab-buttons super-tab-button{min-width: 50% !important;}
+  .width_custom  super-tabs-toolbar > ion-toolbar.toolbar.scroll-tabs .tab-buttons-container .tab-buttons super-tab-button{min-width: 33% !important;}
+  super-tabs-container{height: calc(100% - 20px) !important;}
+  super-tabs-container div{transition:all 500ms !important; }
+  ion-card {
+    position: relative;
+    text-align: center;
+    min-height: 150px;
+  }
+  .home_toolbar{transition-duration: 0ms !important;}
+  .resturant_name{line-height: 20px;}
+  .item_name{line-height: 15px;}
+  .tab_segment{padding:8px;}
+  .tab_segment .segment-button{border-radius: 0px !important;}
+  .card {
+    margin: 0px 0px 0px 0px;
+    border-radius: 0px;
+    width: 100%;
+    height:180px;
+    max-height:180px;
+    -webkit-box-shadow:none !important;
+  }
+  .segment-button.segment-activated{background-color: transparent !important;}
+  .max_img{max-height: 100%;max-width:100%;}
+
+.img_css_bg{background-position: center;background-size: cover;width: 100%;height:100%;}
+ .card-title {
+   position: absolute;
+   top: 33%;
+   font-size: 1.6em;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   width: 100%;
+   font-weight: normal;
+   color: #fff;
+ }
+
+ .card-subtitle {
+   font-size: 12px !important;
+   position: absolute;
+   top: 48%;
+   width: 100%;
+   color: #fff;left:2.5%;
+ }
+ .details_bg{width:100%;position: absolute;top:0%;height:100%;}
+ .collect_Time{position:absolute;width:100%;top:10px;}
+ .stamp_Time{position:absolute;width:100%;bottom:8px;}
+ .stamp_Time .row{padding: 0px 10px;}
+ .footer_cart .add_to_basket{min-height: 30px;line-height: 30px;}
+ .footer_cart ion-col{padding: 0px;}
+ .footer_cart ion-row{padding:0px;}
+ .item_number{margin-top: 4px;width: 25px;height:25px;background-color:#fff;color:#000;border-radius: 100%;display:inline-block; line-height:25px;font-size:12px;}
+ .view_row_basket{width: 95%;margin: auto;}
+ super-tabs-toolbar .toolbar-background{background-color: #333;}
+ super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button.title-only .title{line-height: 40px;padding-top: 12px;display: inline;}
+ super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button{height: 44px;}
+ .dt_time{padding-top: 7px;}
+ super-tab-button .title{font-size:12px;}
+ .trnsi_cls{
+   margin-left:100%;
+    -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+  	/*transition: margin-left 0.5s ease;/*, opacity 0.3s ease*/
+    /*  -webkit-transition: margin-left 0.4s ease;/*, opacity 0.3s ease*/
+    /*  -moz-transition: margin-left 0.5s ease;/*, opacity 0.3s ease*/
+    /*  -o-transition: margin-left 0.5s ease;/*, opacity 0.3s ease*/
+
+ }
+  .trans_add_left{margin-left: 0%;}
+ .radio_btn{vertical-align: bottom;}
+
+  }

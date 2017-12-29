@@ -1,0 +1,107 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.clevertap.cordova.CleverTapPlugin": {
+            "CLEVERTAP_ACCOUNT_ID": "TEST-ZRZ-Z87-7W5Z",
+            "CLEVERTAP_TOKEN": "TEST-ab1-121",
+            "CLEVERTAP_REGION": " ",
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "com.unarin.cordova.beacon": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-open-native-settings": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-apprate": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-geolocation": {
+            "GEOLOCATION_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_IOS": "AIzaSyATi0OTgPIBmgFM8LuuHiAHhTdd8RjVxeo",
+            "LOCATION_WHEN_IN_USE_DESCRIPTION": "Show your location on the map",
+            "LOCATION_ALWAYS_USAGE_DESCRIPTION": "Trace your location on the map",
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-qrscanner": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-request-location-accuracy": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-stripe": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-wheel-selector-plugin": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "com.beli.fab"
+        }
+    },
+    "dependent_plugins": {
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-actionsheet": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "cordova-plugin-swift-support": {
+            "PACKAGE_NAME": "com.beli.fab"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "com.beli.fab"
+        }
+    }
+}

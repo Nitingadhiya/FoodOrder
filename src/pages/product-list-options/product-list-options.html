@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="back_page()">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Options</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">MAP</span>
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="product_page" *ngIf="data_product">
+  <ion-row>
+    <ion-list class="margin product_name font18 black_333" text-center>
+        {{data_product.name}}
+    </ion-list>
+  </ion-row>
+  <ion-row>
+    <ion-list class="margin0 product_description font13 black_333" text-center>
+        {{data_product.description}}
+    </ion-list>
+  </ion-row>
+  <div *ngFor="let productData of product_data; let j= index">
+    <ion-list class="list_mrg0">
+      <ion-list-header class="product_option_header font14" [ngStyle]="{'background-color': constants.secondary_colour}" *ngIf="productData.type == 'multichoice'">
+          {{productData.label}} <span class="txt_inital">(Choose any)</span>
+      </ion-list-header>
+      <ion-list-header class="product_option_header font14" [ngStyle]="{'background-color': constants.secondary_colour}" *ngIf="productData.type == 'choice'">
+          {{productData.key_name}} <span class="txt_inital">(Choose one)</span>
+      </ion-list-header>
+      <ion-list-header class="product_option_header font14" [ngStyle]="{'background-color': constants.secondary_colour}" *ngIf="productData.type == 'boolean'">
+        {{productData.label}} <span class="txt_inital">(Choose one)</span>
+      </ion-list-header>
+    </ion-list>
+
+    <ion-list *ngIf="productData.type == 'multichoice'" class="list_mrg0 chk_custom">
+      <ion-item *ngFor="let choice of productData?.value; let i = index">
+        <ion-label style="white-space: normal;">
+          <span class="price_lbl black_333 font15">{{ choice.label }} {{choice_key_name}}</span>
+          <span class="price_val rgt mid_grey font13" text-right *ngIf="choice.price_modifier > 0">
+            + <span [innerHTML]="globalService.currency_symbol"></span> {{choice.price_modifier}}</span>
+        </ion-label>
+        <ion-checkbox (ionChange)="onChange(productData.key_name,productData.type,choice,i,$event.checked)" [checked]="someArray.indexOf(choice.value) > -1 ? 'true' : 'false'">
+        </ion-checkbox> <!--[(ngModel)]="choice.checked" -->
+      </ion-item>
+    </ion-list>
+
+    <div>
+      <!--[(ngModel)]="productData.label" -->
+   <ion-list radio-group *ngIf="productData.type == 'choice'" class="list_mrg0 item_radio">
+     <ion-item *ngFor="let choice of productData?.value; let i = index" class="item-md">
+       <ion-radio  value="{{choice.value}}" (ionSelect)="on_radioChange(productData.key_name,productData.type,choice, productData.label)" [checked]="someArray_radio.indexOf(choice.value) > -1 ? 'true' : 'false'" class="radio-md"></ion-radio>
+       <ion-label [attr.for]="location"><span class="price_lbl black_333 font15">{{ choice.label}}</span><span *ngIf="choice.price_modifier > 0" class="price_val rgt mid_grey font13" text-right>
+         + <span [innerHTML]="globalService.currency_symbol"></span> {{choice.price_modifier}}</span></ion-label>
+     </ion-item>
+   </ion-list>
+ </div>
+ <div  *ngIf="productData.type == 'boolean'" class="list_mrg0 item_radio">
+  <ion-item radio-group class="item-md"> <!--[(ngModel)]="productData.key_name[j]" -->
+    <ion-radio  value="{{productData.label}}" (ionSelect)="on_radioChange(productData.key_name,productData.type,productData, productData.label)" [checked]="someArray_radio.indexOf(productData.label) > -1 ? 'true' : 'false'" class="radio-md"></ion-radio>
+    <ion-label [attr.for]="location"><span class="price_lbl black_333 font15">{{productData.label}}</span><span *ngIf="productData.price_modifier > 0" class="price_val black_333 rgt mid_grey font13" text-right>
+      + <span [innerHTML]="globalService.currency_symbol"></span> {{productData.price_modifier}}</span></ion-label>
+  </ion-item>
+</div>
+  </div>
+
+<ion-list class="list_mrg0">
+  <ion-list-header class="product_option_header" text-uppercase>
+    Special request
+  </ion-list-header>
+</ion-list>
+<ion-item class="item_txt">
+   <ion-input type="text" placeholder="Enter any special request here" [(ngModel)]="special_request" class="font14 black_333" (input)='onInputTime($event.target.value)'></ion-input>
+</ion-item>
+
+</ion-content>
+<ion-footer class="footer_price">
+    <ion-title class="product_price_bg font13" text-center [ngStyle]="{'background-color': constants.secondary_colour}">&#163; {{item_price}}</ion-title>
+  <ion-toolbar class="add_to_basket" text-center [ngStyle]="{'background-color': constants.button_colour_2}" (click)="add_to_basket()" *ngIf="data_index == -1">
+    <ion-title text-uppercase class="font15 add_title">ADD To BASKET</ion-title>
+  </ion-toolbar>
+</ion-footer>

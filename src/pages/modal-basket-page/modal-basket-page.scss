@@ -1,0 +1,103 @@
+modal-basket-page {
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  [col-1] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 1%;
+    -ms-flex: 0 0 1%;
+    flex: 0 0 1%;
+    width: 1%;
+    max-width: 1%;
+}
+.datetime{padding-left: 0px;}
+.select_time{line-height: 40px;}
+.items_header{box-shadow: 1px 0px 1px 0px #ccc;}
+.colletion_list{height:105px;}
+.product_option_header{margin-bottom: 0px !important;}
+.modal_basket .label{margin: 8px 8px 8px 0;}
+.modal_basket .list-header{min-height: 2rem;}
+ .details_bg{width:100%;position: absolute;top:0%;height:100%;}
+ .style_row{border-bottom: 1px solid #ccc;}
+ .vertical-align-content
+ {
+    display: flex!important;
+    align-content: center!important;
+    align-items: center!important;
+  }
+  [col-2].bskt{max-width: 12%;}
+  .view_to_basket{padding: 0px;}
+  .add_more{border-right: 1px solid;padding: 0px;height: 50px;line-height: 50px;}
+  .continute_pay{line-height: 50px;padding: 0px;height: 50px;}
+  .promo_Discount{height: 38px;}
+  .special_request{display: block;white-space: nowrap; text-overflow: ellipsis;overflow: hidden;}
+  .img_css_bg{background-position: center;background-size: cover;width: 100%;height:100%;}
+  .max_img{max-height: 100%;max-width:100%;}
+  ion-multi-picker{float: left;text-align: left;}
+  .picker_change{width: 105px;position: absolute;right: 0px;padding-top: 10px;}
+  .picker_change .item-inner{border: none !important;}
+  .today_txt{min-width: 50px;display: block;    text-align: left !important;float: left; max-width: 47px;}
+  .multi-picker-text{margin-top: 0px;}
+  .pos_relative{margin-top:10px;}
+  .selct_txt_pl{min-width:165px;}
+  .multi-picker-text{font-size: 13px;}
+}
+
+
+
+  .list_mrg0{margin-bottom: 0px;}
+  .card-title {
+    position: absolute;
+    top: 18%;
+    font-size: 1.6em;
+    width: 100%;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  $line-height: 1.3;
+  $lines-to-show: 2;
+  .card-subtitle {
+    left:2.5%;
+    font-size: 12px;
+    position: absolute;
+    top:44%;
+    width: 100%;
+    color: #fff;
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-width: 95%;
+    margin: 0 auto;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card{margin:0px;width:100%;height:100px;}
+  .alert-head{text-align: center !important;padding: 10px !important;color: #333;}
+  .alert-title{font-size: 14px !important;}
+  .alert-md [aria-checked=true] .alert-radio-label,.alert-ios [aria-checked=true] .alert-radio-label,.alert-md .alert-button,.alert-ios .alert-button{color:#333;}
+  .alert-md [aria-checked=true] .alert-radio-icon,.alert-ios [aria-checked=true] .alert-radio-icon{border-color:#333 !important;}
+  .alert-md .alert-radio-inner,.alert-ios .alert-radio-inner{background-color:#333;}
+
+  ion-picker-cmp .picker-toolbar{position: absolute;top:0px;z-index:-1;height: 100% !important;display: block !important;}
+  ion-picker-cmp .picker-toolbar-multi-picker-cancel{}
+  ion-picker-cmp .picker-toolbar-button,.picker-toolbar-button button{width:100%;background-color:color($colors_whitelabel,secondary_colour);text-align: center;}
+  .picker-toolbar-button:nth-child(2){position: absolute;z-index:1;bottom: 0px;}
+  ion-picker-cmp .picker-toolbar-button button{color:#fff !important;}
+  .picker-opt{color:#333 !important;font-size: 18px !important;}
+  .picker-opt.picker-opt-selected{color:color($colors_whitelabel,secondary_colour) !important;font-size: 18px !important;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+  .picker-toolbar{position: absolute;height: 100% !important;}
+  .picker-col{margin-top: 44px;}
+  .picker-opts{top:30px !important;}
+  .multi-picker-text{color: #333;}
+  .item-multi-picker .label{color: #333}
+  ion-multi-picker{padding-left: 0px !important;}
+  .picker-wrapper {border-top: none !important}
+  .picker-ios .picker-columns{height: 170px;margin-top: 44px;}
+  .picker-ios .picker-opt.picker-opt-selected{border:none !important;}
+  .picker-toolbar-button span{font-weight: normal;font-size: 15px !important}

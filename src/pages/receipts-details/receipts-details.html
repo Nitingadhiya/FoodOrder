@@ -1,0 +1,69 @@
+<ion-header no-shadow no-border>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="back_page()" *ngIf="!globalService.recipe_page">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-buttons left menuToggle *ngIf="globalService.recipe_page" style="display:block !important;">
+      <button ion-button menuToggle class="menu" style="display:block !important;">
+         <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">MAP</span>
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="bg_home my_beli">
+  <ion-list class="padding8"> <!--*ngFor="let item of data_Receipts_Details" -->
+    <ion-row>
+      <ion-col col-6>
+        <ion-label class="font18 font_500 margin">{{merchant_name}}</ion-label>
+        <ion-label class="font10 address margin">{{merchant_address}}</ion-label>
+        <button ion-button class="direction_btn" round outline (click)="direction_app()">Direction</button>
+        <ion-label class="order_time font10"><ion-icon name="ios-clock-outline"></ion-icon>&nbsp; {{data_Receipts_Details.collection_time | dateTime}}</ion-label>
+      </ion-col>
+      <ion-col text-right col-6>
+        <span class="block data_css">
+          <span class="block font18 font_500">{{data_Receipts_Details.collection_code}}</span>
+          <span class="block font10" text-uppercase>Order ID</span>
+        </span>
+        <span class="block data_css">
+          <span class="block font18 font_500" *ngFor="let dataUser of data_user">{{dataUser.user.name}}</span>
+          <span class="block font10" text-uppercase>Customer</span>
+        </span>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+  <ion-list *ngFor="let variation of line_items" class="item_list">
+    <ion-item>
+      <ion-row>
+        <ion-col text-left col-8>
+          {{variation.name}}
+        </ion-col>
+        <ion-col text-right col-4>
+          <span [innerHTML]="globalService.currency_symbol"></span> {{variation.total}}
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+  <ion-list class="item_list">
+    <ion-item>
+      <ion-row>
+          <ion-col text-left col-6>TOTAL</ion-col>
+          <ion-col text-right col-6>
+            <span [innerHTML]="globalService.currency_symbol"></span> {{data_Receipts_Details.total}}</ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer class="footer_price" *ngIf="!data_Receipts_Details.favourite && added_item == 0">
+  <button ion-button full class="signupbut margin font15 default_cls brd_radN" (click)="add_to_favourite(data_Receipts_Details.id,data_Receipts_Details.merchant,data_Receipts_Details.line_items)" [ngStyle]="{'background-color': constants.button_colour_1}" text-uppercase>ADDED TO FAVOURITES</button>
+</ion-footer>

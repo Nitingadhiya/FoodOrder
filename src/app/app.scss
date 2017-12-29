@@ -1,0 +1,201 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.OpenSans-Regular{font-family:'Open Sans';}
+ion-app{font-family:'Open Sans' !important;}
+.OpenSans-Regular-bold{font-family:'Open Sans';font-weight: bold;}
+
+body{font-family:'Open Sans';}
+.brd_none{border:none !important;}
+.errordata{color:color($colors_new, error_color, base);width: 90%;margin: 5px auto;}
+
+.white_code{color:color($colors_new,defcolor) !important;}
+.black_code{color:#000;}
+
+.black_opacity_bg{background-color:color($colors_new,black_card_color)}
+.tab_segment{background-color: color($colors_new,tab_background_color)}
+.title-only.selected span{border-bottom: 2px solid color($colors_new,defcolor) !important;}
+.pin_icon,.menu,.back-button,.toolbar-title,.map_txt{color:color($colors_new,defcolor) !important;}
+.basket_add_icon{color:color($colors_new,loyality_rewards_BTN) !important;}
+.product_description{color:#333 !important;}
+.from_color{color:color($colors_new,from_color) !important;}
+.closed-banner{background-color: color($colors_new,order_collect_BTN);color: color($colors_new,defcolor)}
+.merchant_closed{background-color: color($colors_new,order_collect_BTN);color: color($colors_new,defcolor)}
+.product_option_header{color: color($colors_new,defcolor) !important;background-color: color($colors_new,loyality_rewards_BTN)}
+.product_price_bg{background-color: color($colors_new,order_collect_BTN);}
+.basket_price_bg{background-color: color($colors_new,loyality_rewards_BTN);}
+.product_price_bg .toolbar-title{color: color($colors_new,defcolor) !important;}
+.basket_price_bg .toolbar-title{font-size: 13px;padding: 3px;}
+.add_to_basket{background-color:color($colors_new,loyality_rewards_BTN);}
+.add_to_basket .toolbar-background{background-color:transparent; /*color($colors_new,loyality_rewards_BTN);*/}
+.view_to_basket .toolbar-background{background-color:color($colors_new,order_collect_BTN);}
+.add_to_basket .toolbar-title{color: color($colors_new,defcolor) !important;}
+.order_collect_BTN,.button-md:hover:not(.disable-hover){background-color:color($colors_new,order_collect_BTN);color: color($colors_new,defcolor)}
+.loyality_rewards_BTN{background-color:color($colors_new,loyality_rewards_BTN);color: color($colors_new,defcolor)}
+.menu_header .toolbar-background{background-color:transparent;}
+.menu_header{background-color:#333;}
+.walk1_next,.dot_slide{background-color:color($colors_new,walk1_next);}
+.cancel_order{color:#9F3D37;}
+.toolbar{min-height: 44px;}
+
+.toolbar-background{background-color:transparent; /*color($colors_new,order_collect_BTN);*/}
+.button.order_collect_BTN.activated{opacity: 0.8;background-color: color($colors_new,order_collect_BTN) !important;}
+.button.loyality_rewards_BTN.activated{opacity: 0.8;background-color: color($colors_new,loyality_rewards_BTN) !important;}
+.home_toolbar .toolbar-background,.home_toolbar {background-color: transparent;}
+.red_code{color: red;}
+.card_true{color:#7A2E4C;}
+.brd_rds{border-radius: 100%;}
+
+.button1_css{background-color:color($colors_new,order_collect_BTN);}
+.button1_css_code{color:color($colors_new,order_collect_BTN); }
+.brd_radN{border-radius:0px !important;}
+.pos_relative{position: relative;}
+.rgt{float: right;}
+.flt{float: left;}
+.padding8{padding: 8px;}
+.padding0{padding: 0px !important;}
+.width95{width:95%;}
+.width85{width:85%;}
+.width80{width:80%;}
+.width75{width: 75%;}
+.margin{margin:auto;}
+
+.opacity0{opacity: 0;}
+.bg_trans{background: transparent;}
+.block{display: block;}
+.black_333{color:#333;}
+.black_6f6f{color: #6f6f6f;}
+.mid_grey{color: #808080;}
+
+.font_100{font-weight: 100;}
+.font_200{font-weight: 200;}
+.font_300{font-weight: 300;}
+.font_400{font-weight: 400;}
+.font_500{font-weight: 500;}
+.font_600{font-weight: 600;}
+.font_700{font-weight: 700;}
+
+.custom_list ion-list{margin-bottom: 1px;border-bottom: 1px solid #e5e5e5;}
+.signout_css{position: fixed;bottom: 0px;width: 100%;}
+.font_bold{font-weight: bold;}
+.font_weight400{font-weight: 400;}
+.vis_hidden{visibility: hidden;}
+
+.font60{font-size: 60px;}
+.font50{font-size: 50px;}
+.font45{font-size: 45px;}
+.font40{font-size: 40px;}
+.font36{font-size:36px;}
+.font34{font-size:34px;}
+.font32{font-size:32px;}
+.font30{font-size: 30px;}
+.font28{font-size:28px;}
+.font26{font-size: 26px;}
+.font25{font-size: 25px;}
+.font24{font-size: 24px;}
+.font22{font-size: 22px;}
+.font20{font-size: 20px;}
+.font18{font-size: 18px;}
+.font16{font-size: 16px;}
+.font15{font-size: 15px !important;}
+.font14{font-size: 14px;}
+.font13{font-size: 13px;}
+.font12{font-size: 12px;}
+.font11{font-size: 11px;}
+.font10{font-size: 10px;}
+.font9{font-size: 9px;}
+.font8{font-size: 8px;}
+
+
+.menu_header{height:100px;}
+.menu_user_name .toolbar-title{color:#fff;}
+
+.button-md{height:4.6rem;font-size:1.6rem;}
+
+.back-button-text .back-default::after {
+    content: "\00a0\00a0\00a0\00a0\00a0";
+}
+.ion-md-arrow-back:before{content: "\f3cf";}
+ion-navbar ion-buttons{margin-top:2px !important;}
+.content,.item{color: #333;}
+.segment-ios .segment-button{border-top: none;border-left: none;border-right: none;}
+
+modal-redeem{width: 90% !important;height: 60% !important;margin: auto !important;left: 5% !important;top: 20% !important;}
+modal-redeem-in-store{width: 90% !important;height: 75% !important;margin: auto !important;left: 5% !important;top: 13% !important;}
+modal-redeem-now{width: 90% !important;height: 60% !important;margin: auto !important;left: 5% !important;top: 20% !important;}
+modal-redeem-now.class-modal-size{width:100% !important;height:100% !important;left: 0% !important;top:0% !important;}
+ion-modal ion-backdrop{visibility: visible !important;z-index: -1;}
+
+.menu-inner .toolbar-ios ion-title.menu_user_name{padding-top: 0 !important;
+min-height: 0 !important;
+height: 0px !important;
+text-align: left;
+padding: 0px !important;}
+.menu_user_name .toolbar-title-ios{text-align: left;}
+.item-ios[detail-push] .item-inner, button.item-ios:not([detail-none]) .item-inner, a.item-ios:not([detail-none]) .item-inner
+{background-image:none;padding-right: 10px;}
+
+.brand_small_logo{vertical-align: bottom;height:25px;}
+/*.alert-md .alert-radio-inner,*/ .alert-ios .alert-radio-inner{background-color:transparent !important;border-color:grey !important;}
+.radio-ios .radio-checked .radio-inner{border-color:#333 !important;}
+.menu_userImg_css img{vertical-align:middle; }
+.menu_user_name .toolbar-title{padding-left: 5px;font-size: 24px;}
+.custom_list{margin-top:1px;}
+.custom_list button{min-height: 5.4rem;}
+@media (min-width:320px) and (max-height:480px)
+{
+  .font12{font-size: 11px;}
+  .font13{font-size: 12px;}
+  .radio-ios .radio-checked .radio-inner{border-color: grey;left: 7px;top: 3px;}
+  .radio-ios .radio-icon{border:1px solid grey;border-radius: 100%;margin-left:-7px;}
+  modal-redeem,modal-redeem-now{width: 90% !important;height: 65% !important;margin: auto !important;left: 5% !important;top: 20% !important;}
+  page-default .svg_imgDiv{margin-top: 40px !important;margin-bottom: 0px !important;}
+  page-default .slide_fix_part{height: 130px !important;}
+  page-default .sign_in{margin-top: 3px !important;}
+  page-default .description{line-height: 16px !important;}
+  .item-ios.item-divider{font-size: 1.3rem !important;padding-left: 0px !important}
+  page-brand .main_div{width: 100%;height: 90% !important;}
+}
+
+.ios .ion-page.show-page~.nav-decor{background: transparent !important;}
+.checkbox-ios .checkbox-icon{border-radius: 3px;}
+.checkbox-ios .checkbox-checked .checkbox-inner{top:2px !important;}
+.radio-md.radio-ios .radio-inner {background-color: grey; width: 10px !important; height: 10px !important; left: 3px !important; top: 3px !important; border: none !important;}
+
+.Bluetooth_permission .alert-title{font-size: 17px !important;color: #000;font-family: -apple-system, "Helvetica Neue", Roboto, sans-serif;}
+.alert-wrapper{background-color: #fff !important;}
+.Bluetooth_permission .alert-button-group{font-family: -apple-system, "Helvetica Neue", Roboto, sans-serif}
+.Bluetooth_permission button{color:#1C75DA !important;font-weight:normal !important; font-family: -apple-system, "Helvetica Neue", Roboto, sans-serif}
+
+.ios ion-menu>.menu-inner>.toolbar.statusbar-padding:first-child ion-segment, .ios ion-menu>.menu-inner>.toolbar.statusbar-padding:first-child ion-title, .ios ion-menu>.menu-inner>ion-header>.toolbar.statusbar-padding:first-child ion-segment, .ios ion-menu>.menu-inner>ion-header>.toolbar.statusbar-padding:first-child ion-title,.ios .ion-page>.toolbar.statusbar-padding:first-child ion-segment, .ios .ion-page>.toolbar.statusbar-padding:first-child ion-title, .ios .ion-page>ion-header>.toolbar.statusbar-padding:first-child ion-segment, .ios .ion-page>ion-header>.toolbar.statusbar-padding:first-child ion-title, .ios ion-tab>.ion-page>ion-header>.toolbar.statusbar-padding:first-child ion-segment, .ios ion-tab>.ion-page>ion-header>.toolbar.statusbar-padding:first-child ion-title, .ios ion-tabs>.ion-page.tab-subpage>ion-header>.toolbar.statusbar-padding:first-child ion-segment, .ios ion-tabs>.ion-page.tab-subpage>ion-header>.toolbar.statusbar-padding:first-child ion-title
+ {
+ padding-top: calc(20px + 4px);
+ min-height: calc(44px + 20px);
+ }
+
+ .ios .ion-page>ion-header>.toolbar.statusbar-padding:first-child
+  {
+  padding-top: 20px;
+  min-height: calc(44px + 20px);
+  }
+
+  super-tabs:not([no-shadow])>super-tabs-toolbar>ion-toolbar.toolbar::after, super-tabs:not([no-shadow])>super-tabs-toolbar>ion-toolbar.toolbar::before{background: none !important;}
+
+ion-header .toolbar-ios ion-title{padding: 0 70px 1px;}
+.header-ios ion-navbar ion-buttons{opacity: 1 !important;}
+.platform-cordova .custom_header.header-ios{padding-top: 20px;}
+ion-header ion-navbar ion-buttons ,ion-header ion-navbar ion-title{transition-duration: 0ms !important;transform: translateX(0%) !important;opacity:1 !important;}
+page-reward .scroll-content {background-color: #fff;}

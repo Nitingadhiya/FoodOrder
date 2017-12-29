@@ -1,0 +1,21 @@
+page-merchant-info {
+
+.list{margin:0px;}
+.list ion-item{border-top: none !important;}
+[col-2]{
+   flex: 0 0 10.66667%;
+    width: 10.66667%;
+    max-width: 10.66667%;
+  }
+  #map {
+          width: 100%;
+          height: 100px;
+        }
+      .gmnoprint,.gm-fullscreen-control{display: none !important;}
+.address_merchant{margin-bottom:10px;}
+.call_merchant{margin-top: 10px;}
+.week_padding{padding-right: 8px;display: block;}
+.grey_color{color: grey;}
+.ver_middle{vertical-align: middle;}
+
+}

@@ -1,0 +1,115 @@
+<ion-header no-shadow no-border>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="back_page()">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-title text-center *ngIf="!globalService.brand_name && !globalService.brand_logo">Payment Method</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">MAP</span>
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="" [ngClass]="card_details_add == 0 ? 'stripe_page':'card_page_bg'"><!-- -->
+  <div *ngIf="card_details_add == 0">
+    <ion-grid class="address_name" *ngIf="order_DATA">
+      <ion-row text-center>
+        <ion-col class="font16 mer_name">
+          {{merchant_name}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col text-center class="font11 mer_name">
+          {{merchant_address}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row text-right>
+        <ion-col>
+          <span class="font12 secure_txt">Secured by </span>
+          <span><img src="assets/images/stripe_icon.png" class="stripe_img"> </span>
+          <span class="lock_txt"><ion-icon name="md-lock" class="font16"></ion-icon></span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div *ngIf="globalService.card_info" class="card_details">
+      <ion-list>
+      <ion-item-sliding #item>
+        <ion-item class="itm_card_slide">
+          <ion-row>
+            <ion-col text-left col-3 text-uppercase class="black_333 font13">
+              <span class="span_card_true"><ion-icon name="ios-checkmark-circle" class="card_true font16"></ion-icon></span>&nbsp;&nbsp;
+              <span *ngIf="globalService.card_info.brand == 'Visa'"><img src="assets/images/visa.svg" class="visa_cardImg"></span>
+              <span *ngIf="globalService.card_info.brand == 'Mastercard'"><img src="assets/images/mastercard.svg" class=""></span>
+              <span *ngIf="globalService.card_info.brand == 'Amex'"><img src="assets/images/amex.svg" class=""></span>
+              <span *ngIf="globalService.card_info.brand != 'Amex' && globalService.card_info.brand != 'Visa' && globalService.card_info.brand != 'Mastercard'">{{globalService.card_info.brand}}</span>
+            </ion-col>
+            <ion-col text-left col-7 class="black_333 font13">
+              XXXX XXXX XXXX {{globalService.card_info.last4}}
+              <br/>
+              <span class="font11 black_333">Expires {{globalService.card_info.exp_month}}/{{globalService.card_info.exp_year}}</span>
+            </ion-col>
+        </ion-row>
+        </ion-item>
+      <ion-item-options side="right">
+        <button ion-button (click)="delete_card_Details()" color="danger">Delete</button>
+      </ion-item-options>
+    </ion-item-sliding>
+    </ion-list>
+    </div>
+    <div *ngIf="!globalService.card_info">
+      <ion-grid class="grid_css">
+            <button ion-button class="choose_css" (click)="add_card_Details()">
+            <ion-label class="panel-title" text-left>
+              <ion-icon name="md-add" class="font16 font_bold"></ion-icon>
+              <span class="font14">&nbsp;&nbsp;Add new card</span>
+            </ion-label>
+          </button>
+      </ion-grid>
+    </div>
+    <ion-row>
+      <ion-col class="font9 black_333 all_trns" col-8>
+        All transactions are secure and encrypted
+      </ion-col>
+      <ion-col class="svg_col" text-right col-4>
+        <img src="assets/images/visa.svg" class="visa_svg">
+        <img src="assets/images/mastercard.svg"  class="master_svg">
+        <img src="assets/images/amex.svg" class="amx_svg">
+      </ion-col>
+    </ion-row>
+  </div>
+  <div [ngClass]="card_details_add == 1 ? '' : 'hide'">
+    <div style="position:absolute;z-index:-1;width:100%;height:100%;" (click)="keyboard_close()"></div>
+    <ion-grid class="ion_cardgrid">
+      <ion-row class="row_ion">
+        <form novalidate (ngSubmit)="buy($event)" class="form_width">
+          <div id="card-element" class="field" #card hidePostalCode =true></div>
+          <button type="submit" ion-button full class="save_card" style="opacity:0;" [ngStyle]="{'background-color': constants.button_colour_2,'padding-bottom': globalService.keyboard_height+'px'}">
+            Save
+          </button>
+        </form>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+<ion-footer *ngIf="globalService.card_info && order_DATA">
+    <ion-title class="product_price_bg basket_price_bg font13" text-center>&#163; {{globalService.cart_total}}</ion-title>
+  <ion-toolbar text-center (click)="payment()" [ngStyle]="{'background-color': constants.button_colour_2}">
+    <ion-row>
+      <ion-col  class="white_code pay_by_card">
+        PAY BY CARD
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+<ion-footer [ngStyle]="{'padding-bottom': globalService.keyboard_height+'px'}" *ngIf="card_details_add == 1" class="footer_cont">
+  <button ion-button full class="signupbut margin font15" (click)="buy($event)" [ngStyle]="{'background-color': constants.button_colour_2}" text-uppercase>Save</button>
+</ion-footer>

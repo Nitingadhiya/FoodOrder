@@ -1,0 +1,42 @@
+<ion-content class="card-background-page">
+
+  <ion-list class="distance_location font10 black_333">
+    Distance from current location
+  </ion-list>
+  <ion-card *ngFor="let MD of merchant_name; let i=index;" [ngStyle]="{'height':card_height}">
+    <div class="img_css_bg" img-cache img-cache-bg-url="{{MD.background}}" *ngIf="MD.background" (click)="merchantDetails(MD.id,MD.menu,MD)"></div>
+    <img [src]="MD.background" class="max_img grid_IMAGE" (click)="merchantDetails(MD.id,MD.menu,MD)" src-fallback="{{constants.merchant_defaultImage}}" *ngIf="!MD.background"/> <!-- -->
+    <div class="closed-banner" *ngIf="!MD.is_open">
+        Closed
+    </div>
+    <div class="card-title black_opacity_bg" (click)="merchantDetails(MD.id,MD.menu,MD)">
+      <ion-row align-items-center class="fix_height">
+        <ion-col col-9>
+          <ion-list class="font17 white_code resturant_name Merchant_Name_Css" text-left>
+            {{MD.name}}
+          </ion-list>
+          <ion-list class="font11 white_code item_name font_weight400 Merchant_address_Css" text-left>
+            {{MD.address}}
+          </ion-list>
+        </ion-col>
+        <ion-col col-3>
+          <ion-grid class="grid_padding">
+            <ion-row>
+              <ion-col col-4 class="padding0 margin">
+                <ion-icon name="md-walk"></ion-icon>
+              </ion-col>
+              <ion-col col-8 class="padding0">
+                <ion-list class="font10 white_code resturant_name distance_res" text-right *ngIf="MD.distance">
+                   {{MD.distance}}
+                </ion-list>
+                <ion-list class="font10 white_code resturant_name duration_time" text-right *ngIf="MD.duration">
+                   {{MD.duration}}
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card>
+</ion-content>

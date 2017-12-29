@@ -1,0 +1,56 @@
+page-reward {
+  //.list{border-bottom: 1px solid #ccc;margin-bottom: 2px;}
+  ion-list{margin:0px !important;}
+  ion-item{padding-left:0px !important;}
+  ion-item item-inner{padding-right: 0px !important;}
+  .ion_itm .item-inner{padding-right: 0px !important;border-bottom: 1px solid #ccc !important;height:87px;}
+  .reward_cont ion-label{white-space: normal;margin: 8px 8px 8px 8px !important;}
+  //ion-label{white-space: inherit;}
+  .bg_reward ion-item{background:url('../assets/images/bg.png');background-size: 100%;color:color($colors_new,defcolor);height: 75px;}
+  .opacity5{opacity:0.45}
+  .btn_cls{background-color: #fff;padding-left: 0px !important;padding-right: 0px !important;width:100%;}
+  .btn_cls ion-item{height: auto;}
+  ion-item{height:60px;}
+  //.list-ios .item-block .item-inner{border-bottom: 0px !important;}
+  vertical-align-content > .cls_align
+  {
+       display: flex!important;
+       align-content: center!important;
+       align-items: center!important;
+  }
+  $font-size: 12px;
+  $line-height: 1.4;
+  $lines-to-show: 2;
+  $font-size_name :16px;
+  .product_name {
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-width: 400px;
+    /*height: $font-size*$line-height*$lines-to-show+5;*/ /* Fallback for non-webkit */
+    margin: 0 auto;
+    font-size: $font-size_name;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .product_description {
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-width: 400px;
+    /*height: $font-size*$line-height*$lines-to-show+5;*/ /* Fallback for non-webkit */
+    margin: 0 auto;
+    font-size: $font-size;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 8px;
+  }
+
+}
+
+.list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{border:none !important;}
+.list-ios > .item-block:first-child{border:none !important;}

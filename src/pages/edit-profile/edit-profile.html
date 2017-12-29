@@ -1,0 +1,50 @@
+<ion-header no-shadow no-border>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="backPage()">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Edit Profile</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">MAP</span>
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="edit_profile_content padding8">
+  <div class="item_div">
+  <ion-list>
+    <ion-item>
+      <ion-label stacked class="font13" text-uppercase>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name" name="name" placeholder="Name" class="font15 black_333"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked class="font13" text-uppercase>Phone</ion-label>
+      <ion-input type="number" [(ngModel)]="phonenumber" name="phonenumber" placeholder="Phone number" class="font15 black_333"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked class="font13" text-uppercase>email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email" placeholder="Email" class="font15 black_333"></ion-input>
+    </ion-item>
+  </ion-list>
+</div>
+
+<ion-list class="changeP_list">
+  <ion-label class="font15 red_code" text-center (click)="changePassword()">Change Password</ion-label>
+</ion-list>
+</ion-content>
+
+<ion-footer class="footer_price" [ngStyle]="{'padding-bottom': globalService.keyboard_height+'px'}" text-uppercase>
+  <button ion-button full class="signupbut margin font15" (click)="updateProfile()" [ngStyle]="{'background-color': constants.button_colour_2}" text-uppercase>Update Profile</button>
+</ion-footer>

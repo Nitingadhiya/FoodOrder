@@ -1,0 +1,80 @@
+<ion-menu [content]="content" type="push">
+  <ion-header>
+    <ion-toolbar class="menu_header" [ngStyle]="{'background-color': constants.primary_colour}">
+      <ion-row center align-items-center>
+        <ion-col col-3 class="menu_userImg_css">
+          <img src="{{globalService.avatar_url}}" *ngIf="globalService.avatar_url" class="brd_rds">
+            <img src="{{constants.avtar_icon}}" *ngIf="!globalService.avatar_url">
+        </ion-col>
+        <ion-col text-left col-9 class="col2_menu_usertxt_css">
+          <ion-title class="menu_user_name" *ngIf="globalService.profile_name" text-uppercase>{{globalService.profile_name}}</ion-title>
+          <ion-title class="menu_user_name" *ngIf="!globalService.profile_name" text-uppercase>Guest</ion-title>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="custom_list">
+    <ion-list>
+      <button menuClose ion-item (click)="brandPage()" class="font15 black_333">
+        Home
+      </button>
+    </ion-list>
+    <ion-list>
+      <button menuClose ion-item (click)="mybeliPage()" class="font15 black_333">
+        My Profile
+      </button>
+    </ion-list>
+    <ion-list *ngIf="globalService.merchant_site == 1">
+      <button menuClose ion-item (click)="favouritesPage()" class="font15 black_333">
+        Favourites
+      </button>
+    </ion-list>
+    <ion-list *ngIf="globalService.merchant_site == 1">
+      <button menuClose ion-item (click)="receiptsPage()" class="font15 black_333">
+        Receipts
+      </button>
+    </ion-list>
+    <ion-list>
+      <button menuClose ion-item class="font15 black_333" (click)="promoCodePage()">
+        Enter Promo Code
+      </button>
+    </ion-list>
+    <ion-list class="signout_css">
+      <button menuClose ion-item (click)="signOut()" *ngIf="globalService.access_token" class="font15 black_333">
+        Sign out
+      </button>
+      <button menuClose ion-item (click)="signIn()" *ngIf="!globalService.access_token" class="font15 black_333">
+        Sign in
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false">
+</ion-nav>
+
+<!--<ion-header no-shadow no-border  class="custom_header" *ngIf="globalService.headerShow == true">
+  <ion-navbar [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left *ngIf="globalService.menuShow == true">
+      <button ion-button menuToggle class="menu">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons left navPop *ngIf="globalService.menuShow == false">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-buttons right class="vis_hidden">
+    <button clear icon-only class="bg_trans">
+      <span class="map_txt"></span>
+      <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>-->

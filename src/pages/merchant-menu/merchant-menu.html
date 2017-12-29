@@ -1,0 +1,23 @@
+<ion-content class="card-background-page reward_cont">
+  <ion-list *ngIf="!globalService.merchant_isopen">
+    <ion-item class="merchant_closed white_code font16" text-center [style.backgroundColor]="constants.primary_colour">
+      Merchant Closed
+    </ion-item>
+  </ion-list>
+
+  <ion-list  text-left *ngFor="let category of menu_name" class="margin_space list_of_menu">
+    <button  class="vertical-align-content btn_cls" (click)="menuProduct(category.id,category.name)">
+    <ion-item  class="ion_itm">
+      <ion-row class="vertical-align-content">
+        <ion-col class="cls_align" col-10>
+          <ion-list class="cls_align">
+            <span class="block product_name">{{category.name}}</span>
+          </ion-list>
+        </ion-col>
+        <ion-col col-2 text-right>
+          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </button>
+  </ion-list>

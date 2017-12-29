@@ -1,0 +1,37 @@
+<ion-header no-shadow no-border>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="backPage()">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Contactus</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">MAP</span>
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="bg_home my_beli">
+  <ion-item-group>
+    <ion-list>
+      <a href="tel:{{globalService.contact_phone}}" class="text_deco_non">
+        <button ion-item class="font15 btn_height">
+          Call
+          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </button>
+      </a>
+    </ion-list>
+    <ion-list>
+      <button ion-item (click)="sendEmail()" class="font15 btn_height">
+        Email
+        <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+      </button>
+    </ion-list>
+  </ion-item-group>
+</ion-content>

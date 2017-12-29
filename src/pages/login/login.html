@@ -1,0 +1,47 @@
+<ion-header no-shadow no-border>
+  <ion-navbar class="home_navbar" hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="dismiss()">
+      <button ion-button class="menu" persistent="true">
+       <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>Sign in</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">LIST</span>
+        <span class="pin_icon"><ion-icon name="ios-list"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="padding8 login_content">
+   <form (ngSubmit)="login(email,password,'password')" [formGroup]="loginform">
+     <ion-list>
+      <ion-item>
+        <ion-label stacked class="font13" text-uppercase>Email</ion-label>
+        <ion-input formControlName="email" type="email" [(ngModel)]="email" name="email" placeholder="example@gmail.com" class="font15 black_333"></ion-input>
+      </ion-item>
+        <p *ngIf="loginform.controls['email'].errors && loginform.controls['email'].dirty" class="errordata font11">* Email is not valid.</p>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label stacked class="font13" text-uppercase>Password</ion-label>
+        <ion-input formControlName="password" type="password" [(ngModel)]="password" name="password" placeholder="*****" class="font15 black_333"></ion-input>
+      </ion-item>
+        <p *ngIf="loginform.controls['password'].errors && loginform.controls['password'].dirty" class="errordata font11">* Password is not valid.</p>
+    </ion-list>
+        <ion-row class="nopadding" style="opacity:0 !important;">
+         <ion-col class="auto_margin">
+             <button ion-button full class="signinbut" [disabled]="!loginform.valid">SIGN IN</button>
+         </ion-col>
+       </ion-row>
+     </form>
+     <ion-row>
+       <button ion-item class="font13 black_333 sign_inBtn" [ngStyle]="{'color':constants.button_colour_2}" (click)="goTOForgetPass()" text-center>Forgot Password ?</button>
+     </ion-row>
+
+</ion-content>
+<ion-footer class="footer_price" [ngStyle]="{'padding-bottom': globalService.keyboard_height+'px'}">
+  <button ion-button full class="signinbut margin font15" [disabled]="!loginform.valid" (click)="login(email,password,'password')" [ngStyle]="{'background-color': constants.button_colour_2}">SIGN IN</button>
+</ion-footer>

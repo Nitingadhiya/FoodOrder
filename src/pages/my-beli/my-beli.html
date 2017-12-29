@@ -1,0 +1,74 @@
+<ion-header no-shadow no-border>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left>
+      <button ion-button menuToggle class="menu">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      </ion-buttons>
+      <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+      <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+      <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>My profile</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">MAP</span>
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="bg_home my_beli">
+    <ion-item-group>
+      <ion-item-divider [style.backgroundColor]="constants.secondary_colour" class="white_code" text-center>Preferences</ion-item-divider>
+      <ion-list>
+        <button ion-item (click)="editProfile()" class="font15">
+          Edit Profile
+          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </button>
+      </ion-list>
+      <ion-list class="brd_none">
+        <button ion-item (click)="PaymentMethod()" class="font15">
+          Payment Methods
+          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </button>
+      </ion-list>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item-divider [style.backgroundColor]="constants.secondary_colour" class="white_code" text-center>More</ion-item-divider>
+      <ion-list>
+        <button ion-item (click)="appRating()" class="font15">
+          Rate this app
+          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </button>
+      </ion-list>
+      <ion-list>
+        <button ion-item (click)="socialSharingEmail()" class="font15">
+          Share Foodorder with family & friends
+        </button>
+      </ion-list>
+      <ion-list>
+        <button ion-item (click)="windowOpen('faq')" class="font15">
+          FAQs
+          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </button>
+      </ion-list>
+      <ion-list>
+        <button ion-item (click)="windowOpen('tc')" class="font15">
+          Terms & Conditions
+          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </button>
+      </ion-list>
+      <ion-list align-items-center>
+        <button ion-item (click)="windowOpen('pc')" class="font15">
+          Privacy Policy
+          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </button>
+      </ion-list>
+      <ion-list>
+        <button ion-item (click)="contactFunction()" class="font15">
+          Contact
+          <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+        </button>
+      </ion-list>
+
+    </ion-item-group>
+</ion-content>

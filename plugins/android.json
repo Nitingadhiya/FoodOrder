@@ -1,0 +1,104 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.clevertap.cordova.CleverTapPlugin": {
+            "CLEVERTAP_ACCOUNT_ID": "TEST-ZRZ-Z87-7W5Z",
+            "CLEVERTAP_TOKEN": "TEST-ab1-121",
+            "CLEVERTAP_REGION": " ",
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "com.unarin.cordova.beacon": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-open-native-settings": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-apprate": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-googlemaps": {
+            "API_KEY_FOR_ANDROID": "AIzaSyATi0OTgPIBmgFM8LuuHiAHhTdd8RjVxeo",
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-qrscanner": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-request-location-accuracy": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-stripe": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-wheel-selector-plugin": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        }
+    },
+    "dependent_plugins": {
+        "com.googlemaps.ios": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-actionsheet": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "cordova-plugin-swift-support": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "com.beli.foodorder"
+        }
+    }
+}

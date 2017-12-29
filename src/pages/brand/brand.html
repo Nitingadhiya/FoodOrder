@@ -1,0 +1,70 @@
+<ion-header no-shadow no-border>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left>
+      <button ion-button menuToggle class="menu" style="display:block !important;">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-buttons right class="vis_hidden">
+    <button clear icon-only class="bg_trans">
+      <span class="map_txt"></span>
+      <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="brand_cont noscroll">
+  <div *ngIf="list_view_show == 0" class="main_div" [ngClass]="globalService.rewards_brand ? 'main_css_replace' : '' ">
+    <div class="fadein">
+      <div class="img_css_bg img1_fade" img-cache img-cache-bg-url="{{carousel_1}}"></div>
+      <!--<div class="img_css_bg img1_fade" [ngStyle]="{'background-image': 'url(' +carousel_1+ ')'}"></div>-->
+      <img [src]="carousel_1" *ngIf="!carousel_1">
+      <div class="img_css_bg img2_fade" img-cache img-cache-bg-url="{{carousel_2}}"></div>
+      <img [src]="carousel_2" *ngIf="!carousel_2" >
+      <div class="img_css_bg img3_fade" img-cache img-cache-bg-url="{{carousel_3}}"></div>
+      <img [src]="carousel_3" *ngIf="!carousel_3">
+</div>
+  </div>
+  <div style="height:1px;overflow:auto;" [ngClass]="list_view_show == 1 ? 'dtl_show':''">
+  <div class="ListView">
+    <div #pleaseConnect id="please-connect">
+      <p>Please connect to the Internet...</p>
+    </div>
+    <div style="position:relative;width:100%;height:250px;">
+      <div #map id="map"></div>
+      <div style="width:100%;height:50px;position:absolute;bottom:0px;background-color:#000;">
+        <ion-row>
+          <ion-col class="white_code details_map_collect" text-left>
+            Collect {{collect_time}} in mins
+          </ion-col>
+          <ion-col class="white_code details_map_collect" text-right>
+            {{open_time}}
+          </ion-col>
+        </ion-row>
+
+      </div>
+    </div>
+    <ion-list *ngFor="let list_Res of globalService.map_merchant; let i=index">
+      <ion-item>
+        <ion-row>
+        <ion-col (click)="markerShow(list_Res.lat,list_Res.long,i)" col-8>
+          <ion-icon name="pin" #marker{{i}} id="marker_{{i}}" class="removw_color"></ion-icon>&nbsp;&nbsp;{{list_Res.name}}
+        </ion-col>
+        <ion-col col-4 (click)="merchantDetailsPage(list_Res.id,list_Res.menu,list_Res)">
+          <ion-buttons button>View menu</ion-buttons>
+        </ion-col>
+       </ion-row>
+      </ion-item>
+    </ion-list>
+
+  </div>
+  </div>
+</ion-content>
+<ion-footer *ngIf="list_view_show == 0" class="ion_footer">
+  <div class="footer_divcss"></div>
+    <button ion-button full class="default_cls order_collect_BTN font15" text-uppercase (click)="orderCollect()" [ngStyle]="{'background-color': constants.button_colour_2}">Order & Collect</button>
+
+    <button ion-button full class="default_cls loyality_rewards_BTN font15" text-uppercase (click)="loyalityPage()" [ngStyle]="{'background-color': constants.button_colour_1}" *ngIf="globalService.rewards_brand">Loyality & Rewards</button>
+</ion-footer>

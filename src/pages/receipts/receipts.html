@@ -1,0 +1,31 @@
+<ion-content>
+<div class="padding8 vertical-align-content main_clsF" *ngIf="!this.globalService.access_token">
+  <ion-list class="font13 black_code login_message cls_align" [ngStyle]="{'min-height': slide_height}">
+    Your orders will show up here when you've placed your first order.
+  </ion-list>
+</div>
+<div class="padding8 vertical-align-content main_clsF" *ngIf="Receipts_local.length == 0">
+<ion-list class="font13 black_code login_message cls_align" style="width:100px;">
+  {{data_not_found}}
+</ion-list>
+</div>
+  <ion-list *ngFor="let item of Receipts_local" class="list_design" text-left>
+    <ion-row align-items-center (click)="receipts_details(item.receipts_id)">
+      <ion-col col-11 >
+        <span class="block font15 merchant_name black_code font_600">{{item.merchant_name}} </span>
+        <span class="block list_styl2 font12 black_333">Customer : <span class="font_600 black_code">{{item.customer_name}}</span></span>
+        <span class="block list_styl2 font12 black_333">Order ID : <span class="font_600 black_code">{{item.order_id}}</span></span>
+        <span class="block list_styl2 font12 black_333">{{item.collection_time | dateTime}}</span>
+        <span class="block list_styl2 font12 black_333"><span [innerHTML]='globalService.currency_symbol'></span> {{item.total}} ({{item.product}} items)</span>
+      </ion-col>
+      <ion-col col-1 class="margin">
+        <ion-icon name="ios-arrow-forward" class="black_333"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles"
+                                     loadingText="Loading more data..." class="font12 black_333">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

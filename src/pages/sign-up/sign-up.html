@@ -1,0 +1,63 @@
+<ion-header no-shadow no-border>
+  <ion-navbar class="home_navbar" hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="dismiss()">
+      <button ion-button class="menu" persistent="true">
+       <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>Sign up</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">LIST</span>
+        <span class="pin_icon"><ion-icon name="ios-list"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="padding8 login_content">
+
+  <form (ngSubmit)="signup('https://www.nasa.gov/sites/default/files/styles/image_card_4x3_ratio/public/thumbnails/image/ic10_optical_xray.jpg',email,tel,name,password)" [formGroup]="signupform">
+     <ion-list>
+        <ion-item>
+          <ion-label stacked>Name</ion-label>
+          <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name" placeholder="Enter Name" class="font14"></ion-input>
+        </ion-item>
+        <p *ngIf="signupform.controls['name'].errors && signupform.controls['name'].dirty" class="errordata">* Name is not valid.</p>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label stacked>Phone</ion-label>
+          <ion-input type="tel" formControlName="tel" [(ngModel)]="tel" name="tel" placeholder="Enter Phone number" class="font14"></ion-input>
+        </ion-item>
+        <p *ngIf="signupform.controls['tel'].errors && signupform.controls['tel'].dirty" class="errordata">* Mobile Number is not valid.</p>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input formControlName="email" type="email" [(ngModel)]="email" name="email" placeholder="Enter Email" class="font14"></ion-input>
+        </ion-item>
+          <p *ngIf="signupform.controls['email'].errors && signupform.controls['email'].dirty" class="errordata font11">* Email is not valid.</p>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+            <ion-label stacked>Password</ion-label>
+            <ion-input type="password" formControlName="password" [(ngModel)]="password" name="password" placeholder="Enter Password" class="font14" maxLength="24"></ion-input>
+        </ion-item>
+          <p *ngIf="signupform.controls['password'].errors && signupform.controls['password'].dirty" class="errordata font11">* Password must be minimum 6 characters including  at least 1 number and 1 letter.</p>
+      </ion-list>
+
+      <br/>
+            <ion-row class="nopadding btn_fix_bottom" style="opacity:0 !important;">
+              <ion-col class="auto_margin">
+                <button ion-button full class="signupbut" [disabled]="!signupform.valid">SIGN UP</button>
+              </ion-col>
+            </ion-row>
+         </form>
+           <p text-center class="width85 margin font12 notify_cls">We will only use your phone number to contact you if there is a problem with your order.</p>
+</ion-content>
+<ion-footer class="footer_price" [ngStyle]="{'padding-bottom': globalService.keyboard_height+'px'}">
+  <button ion-button full class="signupbut margin" [disabled]="!signupform.valid" (click)="sign_footer('https://www.nasa.gov/sites/default/files/styles/image_card_4x3_ratio/public/thumbnails/image/ic10_optical_xray.jpg',email,tel,name,password)" [ngStyle]="{'background-color': constants.button_colour_2}">SIGN UP</button>
+</ion-footer>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "20703443370",
+    "firebase_url": "https://beli-food-ordering.firebaseio.com",
+    "project_id": "beli-food-ordering",
+    "storage_bucket": "beli-food-ordering.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20703443370:android:ebd17206feec17bf",
+        "android_client_info": {
+          "package_name": "com.beli.whitelabel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20703443370-7it402m0prkqsjoh39da6ujs4m2ap7f5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.beli.whitelabel",
+            "certificate_hash": "119ead2508836dad4a5aeb2b6d95f35b4312ffdf"
+          }
+        },
+        {
+          "client_id": "20703443370-n65d295qvem9lvifp5mve7av0uh1n5ka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrcGa05fSNBUm1m4tXgObEfdRZJTUgzh0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20703443370-n65d295qvem9lvifp5mve7av0uh1n5ka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

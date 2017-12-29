@@ -1,0 +1,33 @@
+<ion-content>
+<div class="padding8 vertical-align-content main_clsF" *ngIf="!this.globalService.access_token">
+  <ion-list  class="font13 black_code login_message cls_align" [ngStyle]="{'min-height': slide_height}">
+    Register/sign in to keep track of your favourites!
+  </ion-list>
+  </div>
+<div class="padding8 vertical-align-content main_clsF" *ngIf="globalService.favourites_local.length == 0">
+<ion-list class="font13 black_code login_message cls_align" style="width:100px;">
+  {{data_not_found}}
+</ion-list>
+</div>
+<ion-list *ngFor="let item of globalService.favourites_local" class="list_design" text-left>
+  <ion-item class="ion_itm" (click)="favouritesDetails(item.id)">
+    <ion-row class="vertical-align-content">
+      <ion-col col-11 class="cls_align">
+        <ion-list class="seg_merchnatList">
+          <span class="block black_333 font16 merchant_fav">{{item.merchant_name}}</span>
+          <span class="product_description block black_333 font12"><span [innerHTML]='globalService.currency_symbol'></span> {{item.total}} ({{item.product}} items)</span>
+        </ion-list>
+      </ion-col>
+      <ion-col col-1 class="margin">
+        <ion-icon name="ios-arrow-forward" class="black_333"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+</ion-list>
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles"
+                                     loadingText="Loading more data..." class="font12 black_333">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

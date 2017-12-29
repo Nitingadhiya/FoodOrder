@@ -1,0 +1,16 @@
+page-stamp{
+  .collect_stamp,ion-app{background: transparent !important;}
+  .default_cls{width:90%;margin: auto;margin-bottom: 10px;border-radius: 4px;background-color: color($colors_new,order_collect_BTN);}
+  .vertical-align-content > *{display: flex!important;align-content: center!important;align-items: center!important;}
+  .font250{font-size: 216px;}
+  .vertical-align-content > .cls
+  {display: flex!important;align-content: center!important;align-items: center!important;}
+  .main_cls{height:100%;width:100%;margin-top: -35px;}
+  .cls{height:100%;width:100%;}
+  .cls > * {margin: auto;}
+}
+
+.transparentBody {background: transparent !important;}
+.transparentBody page-brand{display: none !important;}
+.dis_none{display: none !important}
+.default_cls{height:5rem !important;border-radius: 5px;}

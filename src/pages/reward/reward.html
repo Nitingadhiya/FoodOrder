@@ -1,0 +1,24 @@
+<ion-content class="card-background-page reward_cont">
+  <ion-list class="bg_reward" [style.backgroundColor]="constants.primary_colour">
+    <ion-item *ngIf="buttonDisabled" text-center class="font16">
+      Collect {{stamps_required}} stamps to redeem a reward
+    </ion-item>
+    <ion-item *ngIf="!buttonDisabled" text-center class="font16">
+      Please select one reward
+    </ion-item>
+  </ion-list>
+  <ion-list *ngFor="let item of reward_product" text-left>
+    <button  disabled={{buttonDisabled}} class="vertical-align-content btn_cls">
+    <ion-item (click)="add_to_basket(item)" class="ion_itm">
+      <ion-row class="vertical-align-content">
+        <ion-col class="cls_align">
+          <ion-list>
+            <span class="block font16 product_name">{{item.name}}</span>
+            <span class="block font13 product_description">{{item.description}}</span>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </button>
+  </ion-list>
+</ion-content>

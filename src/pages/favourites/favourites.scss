@@ -1,0 +1,23 @@
+page-favourites {
+  .scroll {height: 100%;}
+  .vertical-align-content > .cls_align  { display: flex!important;align-content: center!important;align-items: center!important; }
+  .fix_height{height: 70px;}
+  .merchant_fav{width: 100%;display: block;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+  .seg_merchnatList{width: 100%;}
+  .noscroll{overflow: hidden;}
+  .list{margin-bottom: 0px !important;}
+  .list .item{padding-left: 0px;}
+  .item-inner{padding-right: 0px;}
+  .list_design{border-bottom: 1px dashed #ccc;margin-bottom: 1px !important;}
+  .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{border: none;}
+  .list-ios > .item-block:first-child{border: none;}
+  .vertical-align-content > .cls_align
+  {
+       display: flex!important;
+       align-content: center!important;
+       align-items: center!important;
+  }
+  .login_message{width: 75%;margin: auto; text-align: center;margin-top: -5px;height: 100%;}
+  super-tabs-container{background-color: #fff;}
+  .main_clsF{height: 100%;}
+  }

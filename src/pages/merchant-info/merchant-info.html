@@ -1,0 +1,112 @@
+<ion-content class="card-background-page" padding-top>
+  <ion-row class="address_merchant">
+    <ion-col col-2>
+      <ion-icon name="pin" class="grey_color"></ion-icon>
+    </ion-col>
+    <ion-col text-left *ngIf="globalService.merchant_info">
+      {{globalService.merchant_info.address}}
+    </ion-col>
+    <ion-col col-2 (click)="launchApp()">
+      <ion-icon name="ios-navigate"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+    <div #map id="map"></div>
+
+  <ion-row class="call_merchant">
+    <ion-col col-2>
+      <ion-icon name="call" class="grey_color"></ion-icon>
+    </ion-col>
+    <ion-col text-left *ngIf="globalService.merchant_info">
+      {{globalService.merchant_info.phone_number}}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2>
+       <ion-icon name="md-time" class="grey_color"></ion-icon>
+    </ion-col>
+    <ion-col (click)="openingHours()" text-left>
+      Opening times <span *ngIf="globalService.merchant_isopen == true"><b>open now</b></span>
+      <span *ngIf="globalService.merchant_isopen == false"><b>closed now</b></span> {{open_time}} <ion-icon name="arrow-down" *ngIf="week_opentime == 0" class="ver_middle"></ion-icon> <ion-icon name="arrow-up" *ngIf="week_opentime == 1"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <div *ngIf="week_opentime == 1">
+  <ion-row>
+    <ion-col col-2 class="opacity0">
+       <ion-icon name="md-time"></ion-icon>
+    </ion-col>
+    <ion-col text-left [ngClass]="Get_dayName == 'monday' ? 'font_bold' : '' ">
+      Monday
+    </ion-col>
+    <ion-col text-right [ngClass]="Get_dayName == 'monday' ? 'font_bold' : '' ">
+      <span class="week_padding">{{Fweek_day1}} - {{Tweek_day1}}</span>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2 class="opacity0">
+       <ion-icon name="md-time"></ion-icon>
+    </ion-col>
+    <ion-col text-left [ngClass]="Get_dayName == 'tuesday' ? 'font_bold' : '' ">
+      Tuesday
+    </ion-col>
+    <ion-col text-right [ngClass]="Get_dayName == 'tuesday' ? 'font_bold' : '' ">
+      <span class="week_padding">{{Fweek_day2}} - {{Tweek_day2}}</span>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2 class="opacity0">
+       <ion-icon name="md-time"></ion-icon>
+    </ion-col>
+    <ion-col text-left [ngClass]="Get_dayName == 'wednesday' ? 'font_bold' : '' ">
+      Wednesday
+    </ion-col>
+    <ion-col text-right [ngClass]="Get_dayName == 'wednesday' ? 'font_bold' : '' ">
+      <span class="week_padding">{{Fweek_day3}} - {{Tweek_day3}}</span>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2 class="opacity0">
+       <ion-icon name="md-time"></ion-icon>
+    </ion-col>
+    <ion-col text-left [ngClass]="Get_dayName == 'thursday' ? 'font_bold' : '' ">
+      Thursday
+    </ion-col>
+    <ion-col text-right [ngClass]="Get_dayName == 'thursday' ? 'font_bold' : '' ">
+      <span class="week_padding">{{Fweek_day4}} - {{Tweek_day4}}</span>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2 class="opacity0">
+       <ion-icon name="md-time"></ion-icon>
+    </ion-col>
+    <ion-col text-left [ngClass]="Get_dayName == 'friday' ? 'font_bold' : '' ">
+      Friday
+    </ion-col>
+    <ion-col text-right [ngClass]="Get_dayName == 'friday' ? 'font_bold' : '' ">
+      <span class="week_padding">{{Fweek_day5}} - {{Tweek_day5}}</span>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2 class="opacity0">
+       <ion-icon name="md-time"></ion-icon>
+    </ion-col>
+    <ion-col text-left [ngClass]="Get_dayName == 'saturday' ? 'font_bold' : '' ">
+      Saturday
+    </ion-col>
+    <ion-col text-right [ngClass]="Get_dayName == 'saturday' ? 'font_bold' : '' ">
+      <span class="week_padding">{{Fweek_day6}} - {{Tweek_day6}}</span>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2 class="opacity0">
+       <ion-icon name="md-time"></ion-icon>
+    </ion-col>
+    <ion-col text-left [ngClass]="Get_dayName == 'sunday' ? 'font_bold' : '' ">
+      Sunday
+    </ion-col>
+    <ion-col text-right [ngClass]="Get_dayName == 'sunday' ? 'font_bold' : '' ">
+      <span class="week_padding">{{Fweek_day7}} - {{Tweek_day7}}</span>
+    </ion-col>
+  </ion-row>
+</div>
+</ion-content>

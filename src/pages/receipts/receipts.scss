@@ -1,0 +1,149 @@
+page-receipts {
+  .map_txt{display: inline-block;vertical-align: bottom;margin-right: -8px;}
+  .pin_icon{display:inline-block;vertical-align: middle;}
+  .scroll {
+      height: 100%;
+  }
+  .img_css_bg{background-position: bottom;background-size: cover;width: 100%;height:100%;}
+  .vertical-align-content > .cls_align
+  {
+       display: flex!important;
+       align-content: center!important;
+       align-items: center!important;
+  }
+  .fix_height{height: 70px;}
+
+  $font-size_resN: 17px;
+  $lines-to-show_resN: 2;
+  $font-size: 11px;
+  $line-height: 1.4;
+  $lines-to-show: 1;
+  .Merchant_Name_Css {
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-width: 400px;
+    /*height: $font-size*$line-height*$lines-to-show+5;*/ /* Fallback for non-webkit */
+    margin: 0 auto;
+    font-size: $font-size_resN;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show_resN;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .Merchant_address_Css {
+    display: block; /* Fallback for non-webkit */
+    display: -webkit-box;
+    max-width: 400px;
+    /*height: $font-size*$line-height*$lines-to-show+5;*/ /* Fallback for non-webkit */
+    margin: 0 auto;
+    font-size: $font-size;
+    line-height: $line-height;
+    -webkit-line-clamp: $lines-to-show;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #map {
+      width: 100%;
+      height: 250px;
+  }
+  .map {
+      width: 100%;
+      height: 250px !important;
+  }
+  .merchant_fav{width: 100%;display: block;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+  .seg_merchnatList{width: 100%;}
+  .noscroll{overflow: hidden;}
+  .list{margin-bottom: 0px !important;}
+  /*.gmnoprint,.gm-fullscreen-control{display: none !important;}*/
+  .details_map_collect{line-height: 40px;}
+  .list .item{padding-left: 0px;}
+  .item-inner{padding-right: 0px;}
+  .dtl_show{height:100% !important;width:100%;}
+  .card-title{bottom: 0px !important;top:auto;}
+
+  .merchant_name{line-height: 28px;}
+  .merchant_line{line-height: 20px;}
+  .list_styl2{line-height: 18px;}
+  .list_design{border-bottom: 1px dashed #ccc;margin-bottom: 1px !important;}
+  //.swiper-slide{align-items: flex-start;overflow: auto;}
+  /*.slide-zoom{
+      width:100%;
+      height:100%;
+  }*/
+  //.swiper-container{position: static;}
+  ion-slides{height: auto;}
+  //.swiper-slide{font-size:14px;}
+  .List_VIEW .scroll-content{margin-top:42px !important;}
+  .card{min-height: 100px !important;max-height: none !important;box-shadow: none !important;}
+  .grid_IMAGE{    min-width: 100%;min-height: 100%;
+      max-width: initial !important;
+      max-height: initial !important;
+      /*max-height: fit-content !important;
+      max-width: -webkit-fill-available !important;*/
+      margin: auto;
+      left: -100%;
+      right: -100%;
+      top: -100%;
+      bottom: -100%;
+      position: absolute;
+      margin: auto;}
+    //  .segment-ios .segment-button{border-color: inherit;}
+    //  .segment .segment-button{color:rgba(255,255,255,0.7) !important;}//border-bottom-color:#7DCA7D !important;
+  //    .segment-button.segment-activated{color: color($colors_new,defcolor) !important;}
+    //  .segment-button.segment-activated span{border-color:color($colors_new,defcolor) !important;border-bottom:2px solid;}
+      .grid_padding{padding: 0px;}
+    .vis_hide{visibility: hidden;}
+      .distance_location{height: 32px;line-height: 32px;margin: 0px;}
+    //  .segment .segment-button{height:2.5rem;line-height: 2.3rem;}
+      //.home_toolbar .toolbar-background,.home_toolbar {background-color: transparent;height: 44px;min-height: 44px;}
+      .resturant_name{line-height: 20px !important;}
+      .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{border: none;}
+      .list-ios > .item-block:first-child{border: none;}
+      .vertical-align-content > .cls_align
+      {
+           display: flex!important;
+           align-content: center!important;
+           align-items: center!important;
+      }
+    //  .segment-ios .segment-button:hover:not(.segment-activated){background-color: transparent !important;}
+  //    ion-slide{min-height: 355px;}
+  //    .seg{height:100%;}
+
+      ion-card {
+        position: relative;
+        text-align: center;
+        min-height: 150px;
+      }
+      .card-title {
+        position: absolute;
+        bottom: 0px;width:100%;padding: 0px 5px 0px 5px;
+      }
+      .resturant_name{line-height: 20px;}
+      .item_name{line-height: 15px;}
+    //  .tab_segment{padding:8px;}
+    //  .tab_segment .segment-button{border-radius: 0px !important;}
+      .card {
+        margin: 0px 0px 10px 0px;
+        border-radius: 2px;
+        width: 100%;
+        height:200px;
+        max-height:180px;
+      }
+      //.segment-button.segment-activated{background-color: transparent !important;}
+      .max_img{max-height: 100%;max-width:100%;}
+      .card-background-page{padding-top: 10px;}
+       .closed-banner{width: 150px;position: absolute;z-index: 10001;height: 60px;top: -30px;transform: rotate(-30deg);left: -30px;padding-right: 50px;
+        line-height: 80px;}
+        .login_message{width: 75%;margin: auto; text-align: center;margin-top: -5px;height: 100%;}
+        .removw_color{color:grey;}
+        .name_list{line-height: 40px;}
+        .ITM .item-inner{padding-right: 0px;}
+        .menu_btn{width: 100%;height: 3rem;color:#333;}
+        .ITM ion-label{margin: 7px;margin-right: 2px;}
+        .IList{border-bottom: 1px solid #ccc;margin-bottom: 2px !important;}
+      //  ion-segment-button{min-width: 33%;}
+      super-tabs-container{background-color: #fff;}
+      .main_clsF{height: 100%;}
+  }

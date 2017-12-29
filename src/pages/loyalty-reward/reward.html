@@ -1,0 +1,35 @@
+<ion-header no-shadow no-border>
+  <ion-navbar [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left>
+      <button ion-button menuToggle class="menu">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      </ion-buttons>
+      <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+      <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+      <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Loyality</ion-title>
+    <ion-buttons right class="opacity0">
+      <button clear icon-only class="bg_trans">
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="loyalty_cont">
+  <ion-label text-uppercase text-center class="white_code">
+    Your Rewards
+  </ion-label>
+  <ion-grid class="width80 grid_reward">
+    <ion-row *ngFor="let item of rewards_list" class="row_reward">
+      <ion-col col-2 text-center class="margin" (click)="showModal(item)">
+        <ion-icon name="ios-star" class="loyality_star font20" [ngClass]="user_progress >= stamps_required ? 'stamp_color' :'' "></ion-icon>
+      </ion-col>
+      <ion-col col-7 class="margin" (click)="showModal(item)">
+        {{item.name}}
+      </ion-col>
+      <ion-col col-3 class="margin" (click)="showModal(item)">
+        REDEEM
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

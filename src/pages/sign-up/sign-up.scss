@@ -1,0 +1,29 @@
+page-sign-up {
+    .auto_margin{
+        margin: auto;
+       }
+       .auto_margin:first-child{
+         padding:5px;
+        }
+        .signupbut {
+            color: color($colors_new, defcolor, base);
+            background:   color($colors_new, order_collect_BTN, base) !important;
+
+          }
+          .signupbut.activated {
+            color: color($colors_new, defcolor, base);
+            background:   color($colors_new, order_collect_BTN, base) !important;
+          }
+          .btn_fix_bottom{position: fixed;width: 100%;z-index: 10002;bottom: 0px;background-color: #fff;}
+          .item-input-has-focus .label{  color:color($colors_new, order_collect_BTN, base) !important;}
+          .item-inner{margin-right: 16px;}
+          ion-item{border:none !important;box-shadow: none !important;}
+          .notify_cls{line-height: 18px;color: color($colors_new, order_collect_BTN, base) !important;margin-bottom: 50px;}
+          ion-item{border:none !important;box-shadow: none !important;}
+          .login_content{background-color: #f1f1f1 !important;}
+          form{margin-top: 35px;}
+          form ion-list{border-bottom:1px solid #e5e5e5;background-color: #fff;margin-bottom: 1px !important;}
+          .item-inner{border: none !important;}
+          .sign_inBtn.activated,.sign_inBtn{background: transparent !important;}
+.footer_price{background-color: #fff;}
+}

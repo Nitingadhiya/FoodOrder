@@ -1,0 +1,37 @@
+<ion-header no-shadow no-border>
+  <ion-navbar class="home_navbar" hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="dismiss()">
+      <button ion-button class="menu" persistent="true">
+       <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center>Forgot Password</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">LIST</span>
+        <span class="pin_icon"><ion-icon name="ios-list"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+    <ion-content padding8 class="login_content">
+
+           <form (ngSubmit)="forget(email,password,'password')" [formGroup]="forgetform">
+             <ion-item>
+                <ion-label stacked text-uppercase class="font13">Email</ion-label>
+                <ion-input formControlName="email" type="email" [(ngModel)]="email" name="email" placeholder="example@gmail.com" class="font15 black_333"></ion-input>
+              </ion-item>
+              <p *ngIf="forgetform.controls['email'].errors && forgetform.controls['email'].dirty" class="errordata">Email is not valid.</p>
+                <ion-row class="nopadding btn_fix_bottom" style="opacity:0;">
+                 <ion-col class="auto_margin">
+                     <button ion-button full class="signinbut" [disabled]="!forgetform.valid">Reset Password</button>
+                 </ion-col>
+               </ion-row>
+             </form>
+
+    </ion-content>
+    <ion-footer class="footer_price" [ngStyle]="{'padding-bottom': globalService.keyboard_height+'px'}">
+      <button ion-button full class="signinbut margin font16 default_cls brd_radN" [disabled]="!forgetform.valid" (click)="forget(email,password,'password')" text-uppercase [ngStyle]="{'background-color': constants.button_colour_2}"> Reset Password</button>
+    </ion-footer>

@@ -1,0 +1,94 @@
+<ion-header no-shadow no-border *ngIf="Redeem_Now == 1">
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="closePage()">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Redeemed</ion-title>
+    <ion-buttons right class="vis_hidden">
+      <button clear icon-only class="bg_trans">
+        <span class="map_txt">MAP</span>
+        <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content [ngClass]="Redeem_Now == 1 ? 'margin_redeem': 'redeem_modal'">
+  <div *ngIf="Redeem_Now != 1">
+  <ion-row text-center class="row_padd">
+    <ion-col text-uppercase class="col_fn font15">
+    Redeem Now?
+  </ion-col>
+  <button ion-button (click)="close_page()" class="close_modal">
+    <ion-icon name="ios-close" class="font24 font_bold"></ion-icon>
+  </button>
+  </ion-row>
+  <ion-grid class="width80 grid_reward">
+    <ion-row class="row_reward">
+      <ion-col col-10 class="margin font13" text-center>
+        <span class="star_span"><img src="assets/images/star_fill.png" class="star_fill"></span>
+        <span class="txt_span">1X {{item_data.name}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid text-center>
+    <ion-row>
+      <ion-col class="font13">
+      Your 'Redeem Now' code will expire after
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="font22 15_min">
+        15 mins
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="font13">
+        Are you sure you want to redeem it now?
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+<div *ngIf="Redeem_Now == 1">
+  <ion-row text-center>
+    <ion-col text-uppercase class="col_fn" [ngClass]="Redeem_Now == 1 ? '':'left_css'">
+    Redeemed
+  </ion-col>
+  </ion-row>
+  <ion-grid class="width80 grid_reward">
+    <ion-row class="row_reward">
+      <ion-col col-10 class="margin font13" text-center>
+        <span class="star_span"><img src="assets/images/star_fill.png" class="star_fill"></span>
+        <span class="txt_span">1X {{item_data.name}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="order_gif" [ngStyle]="{'width':(globalService.device_width/1.5)+'px'}">
+        <span class="order_code" [ngStyle]="{'line-height':(globalService.device_width/1.5)+'px'}">#{{reward_code}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <span class="font36">{{countDown | async | formatTime}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+</ion-content>
+<ion-footer class="ion_footer" *ngIf="Redeem_Now != 1">
+  <div class="footer_divcss"></div>
+    <button ion-button full class="default_cls order_collect_BTN" text-uppercase (click)="redeemNow()" [ngStyle]="{'background-color': constants.button_colour_2}">REDEEM NOW</button>
+    <button ion-button full class="default_cls loyality_rewards_BTN" text-uppercase (click)="closePage()" [ngStyle]="{'background-color': constants.button_colour_1}">SAVE FOR LATER</button>
+</ion-footer>
+<ion-footer class="ion_footer cls_cont_footer" *ngIf="Redeem_Now == 1">
+  <div class="footer_divcss"></div>
+    <button ion-button full class="default_cls order_collect_BTN" text-uppercase (click)="closePage()" [ngStyle]="{'background-color': constants.button_colour_2}">Close</button>
+</ion-footer>

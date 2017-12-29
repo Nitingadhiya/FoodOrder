@@ -1,0 +1,45 @@
+<ion-content class="redeem_modal">
+  <ion-row text-center class="header_row">
+    <ion-col text-uppercase class="font15 title_page">
+    Redeem
+  </ion-col>
+    <button ion-button (click)="closePage()" class="close_modal"><ion-icon name="ios-close" class="font24 font_bold"></ion-icon></button>
+  </ion-row>
+  <ion-grid class="width80 grid_reward">
+    <ion-row class="row_reward">
+      <ion-col col-10 class="margin font13" text-center>
+        <span class="star_span"><img src="assets/images/star_fill.png" class="star_fill"></span>
+        <span class="txt_span">1X Reward Item</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid text-center>
+    <ion-row>
+      <ion-col class="font11">
+        You can either:
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="font11 padding0">
+        Add this item to your basket and order ahead.
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="font11">
+        OR
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="font11 padding0">
+        Collect this item in-store when you next visit.
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer class="ion_footer">
+  <div class="footer_divcss"></div>
+    <button ion-button full class="default_cls order_collect_BTN" text-uppercase (click)="addBasket()" [ngStyle]="{'background-color': constants.button_colour_2}">ADD TO BASKET</button>
+
+    <button ion-button full class="default_cls loyality_rewards_BTN" text-uppercase (click)="redeemInStore()" [ngStyle]="{'background-color': constants.button_colour_1}">REDEEM IN-STORE</button>
+
+</ion-footer>

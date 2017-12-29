@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-navbar hideBackButton [ngStyle]="{'background-color': constants.primary_colour}">
+    <ion-buttons left (click)="back_page()">
+      <button ion-button class="menu" persistent="true">
+         <ion-icon name="ios-arrow-back" class="back-button-icon icon icon-ios back-button-icon-ios ion-ios-arrow-back"></ion-icon>
+         <span class="back-button-text back-button-text-ios">Back</span>
+      </button>
+    </ion-buttons>
+    <ion-title text-center *ngIf="!globalService.brand_logo">{{globalService.brand_name}}</ion-title>
+    <ion-title *ngIf="globalService.brand_logo" text-center><img img-cache [img-cache-src]="globalService.brand_logo" class="brand_small_logo"></ion-title>
+    <ion-title *ngIf="!globalService.brand_name && !globalService.brand_logo" text-center>Product List</ion-title>
+    <ion-buttons right class="vis_hidden">
+    <button clear icon-only class="bg_trans">
+      <span class="map_txt">MAP</span>
+      <span class="pin_icon"><ion-icon name="ios-pin-outline"></ion-icon></span>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="product_page">
+  <ion-list *ngIf="product_found == false" text-center class="No_product">
+    No product Found
+  </ion-list>
+  <ion-list *ngFor="let product of product_item; let i=index;">
+    <ion-item class="ion_itm" (click)="productListOption(product)">
+      <ion-row class="vertical-align-content">
+        <ion-col col-10 class="cls_align">
+          <ion-list>
+            <span class="block black_333 font16">{{product.name}}</span>
+            <span class="product_description block black_333 font14" *ngIf="!product_description">{{product.description}}</span>
+          </ion-list>
+        </ion-col>
+        <ion-col col-2>
+          <ion-list text-right class="font13 from_color">
+            from
+          </ion-list>
+          <ion-list class="font13" text-right>
+            <span [innerHTML]="globalService.currency_symbol" class="black_333"></span> {{product.price}}
+          </ion-list>
+          <ion-list text-center>
+            &nbsp;&nbsp;<ion-icon name="add" class="font16 basket_add_icon font_bold"></ion-icon>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+<br/><br/><br/>
+</ion-content>
+<ion-footer *ngIf="globalService.product_cart.length > 0" class="footer_cart">
+  <ion-toolbar class="add_to_basket view_to_basket font13" text-center (click)="showModal()">
+    <ion-row class="view_row_basket">
+      <ion-col  class="white_code font13" text-left>
+        <span class="item_number black_333" text-center>{{globalService.product_cart.length}}</span><span style="display:inline-block;line-height:15px;margin-left: 3px;">&nbsp; item</span>
+      </ion-col>
+      <ion-col  class="white_code font15" text-center>
+      <!--<span style="display:block;width:100%;margin-top:5px;">-->  &#163; {{globalService.cart_total}}<!--</span>-->
+      </ion-col>
+      <ion-col class="white_code font13" align-self-end text-uppercase text-right>
+        <span>View</span>&nbsp;&nbsp;<span><ion-icon name="ios-arrow-forward" class="font22 view_cart_right_arrow"></ion-icon></span>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+
+<!--
+<ion-footer *ngIf="globalService.product_cart.length > 0">
+  <ion-toolbar class="add_to_basket font13" text-center>
+    <ion-row>
+      <ion-col  class="white_code font13" (click)="merchant_details_screen()">
+        <div style="width:20px;height:20px;background-color:#fff;color:#000;border-radius:100%;">{{globalService.product_cart.length}}</div> item
+      </ion-col>
+      <ion-col  class="white_code font13">
+        {{item_total_cart}}
+      </ion-col>
+      <ion-col class="white_code font13" (click)="showModal()">
+        View  <ion-icon name="arrow-forward" class="font13"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>-->
